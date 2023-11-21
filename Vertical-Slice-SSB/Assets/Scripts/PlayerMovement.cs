@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        moveSpeed = 5f;
-        jumpPower = 5f;
+        //moveSpeed = 5f;
+        //jumpPower = 5f;
     }
 
     void FixedUpdate()
@@ -50,7 +50,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private bool GroundCheck()
     {
-        groundCheckBool = Physics.CheckSphere(groundCheckObj.transform.position, 0.5f, groundLayer); // checks if the groundcheck is in a small radius of the Ground layer
+        // checks if the groundcheck is in a small radius of the Ground layer
+        groundCheckBool = Physics.CheckSphere(groundCheckObj.transform.position, 0.5f, groundLayer);
         return groundCheckBool;
     }
 }

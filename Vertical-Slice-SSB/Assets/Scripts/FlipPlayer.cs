@@ -17,10 +17,10 @@ public class FlipPlayer : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
 
                    // Flip the player if moving in the opposite direction
-        if ((horizontalInput > 0 && !isFacingRight) || (horizontalInput < 0 && isFacingRight))
+        if ((horizontalInput < 0 && !isFacingRight) || (horizontalInput > 0 && isFacingRight))
         {
             // Flip the scale of the player along the x-axis
-            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -transform.localScale.z);
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
             // Update the facing direction
             isFacingRight = !isFacingRight;
