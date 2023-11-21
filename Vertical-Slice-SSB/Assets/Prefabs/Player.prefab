@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 810345185226308514}
   - component: {fileID: 810345185226308515}
   - component: {fileID: 810345185226308512}
+  - component: {fileID: 6831423082976987419}
+  - component: {fileID: 2498407399667143720}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -154,6 +156,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &6831423082976987419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810345185226308513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03569436153645a4fb15a15d3f3cb32a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuickAttackAxis: 
+--- !u!114 &2498407399667143720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810345185226308513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91be2171c77ee2a48a2422ccdb1d161f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeavyAttackAxis: 
 --- !u!1 &810345186258549935
 GameObject:
   m_ObjectHideFlags: 0

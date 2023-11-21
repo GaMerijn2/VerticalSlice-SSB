@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuickAttack : MonoBehaviour
+public class HeavyAttack : MonoBehaviour
 {
     [SerializeField] private int Player;
-    private KeyCode QuickAttackKeyCode;
+    private KeyCode HeavyAttackKeyCode;
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
 
@@ -13,7 +13,7 @@ public class QuickAttack : MonoBehaviour
 
     void Start()
     {
-        if (Player != 1 || Player != 2)
+        if(Player != 1 || Player != 2)
         {
             Debug.Log("Player incorectly assigned");
             Application.Quit();
@@ -21,30 +21,28 @@ public class QuickAttack : MonoBehaviour
 
         if (Player == 1)
         {
-            QuickAttackKeyCode = KeyCode.C;
+            HeavyAttackKeyCode = KeyCode.V;
         }
         if (Player == 2)
         {
-            QuickAttackKeyCode = KeyCode.O;
+            HeavyAttackKeyCode = KeyCode.P;
         }
 
-
     }
+
     void Update()
     {
-        if (Input.GetKeyDown(QuickAttackKeyCode))
+        if (Player == 1 && Input.GetKeyDown(HeavyAttackKeyCode))
         {
             Attack();
         }
     }
 
-
-
-
     private void Attack()
     {
         //play animation, gameartist
-        Debug.Log("ATTACK!");
+        Debug.Log("HEAVY_ATTACK!");
 
     }
+
 }
