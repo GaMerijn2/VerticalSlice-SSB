@@ -182,8 +182,8 @@ MonoBehaviour:
     m_Bits: 8
   groundCheckBool: 0
   horizontalInput: 0
-  horizontalInputAxis: 
-  jumpAxis: 
+  horizontalInputAxis: P2Horizontal
+  jumpAxis: P2Jump
 --- !u!114 &242017366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,8 +492,8 @@ MonoBehaviour:
     m_Bits: 8
   groundCheckBool: 0
   horizontalInput: 0
-  horizontalInputAxis: 
-  jumpAxis: 
+  horizontalInputAxis: P1Horizontal
+  jumpAxis: P1Jump
 --- !u!114 &360111611
 MonoBehaviour:
   m_ObjectHideFlags: 0
