@@ -628,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2842b152cf4937345bdca936916954c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keybind: o
+  keybind: l
   Health: {fileID: 360111617}
 --- !u!114 &360111617
 MonoBehaviour:
