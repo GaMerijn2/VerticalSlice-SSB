@@ -5,6 +5,8 @@ using UnityEngine;
 public class QuickAttack : MonoBehaviour
 {
     [SerializeField] private int Player;
+    [SerializeField] private DoDamage doDamage;
+    [SerializeField] private float multiplier;
     private KeyCode QuickAttackKeyCode;
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
@@ -13,7 +15,7 @@ public class QuickAttack : MonoBehaviour
 
     void Start()
     {
-        if (Player != 1 || Player != 2)
+        if (Player != 1 && Player != 2)
         {
             Debug.Log("Player incorectly assigned");
             Application.Quit();
@@ -35,6 +37,7 @@ public class QuickAttack : MonoBehaviour
         if (Input.GetKeyDown(QuickAttackKeyCode))
         {
             Attack();
+            doDamage.IsAttacking(multiplier);
         }
     }
 

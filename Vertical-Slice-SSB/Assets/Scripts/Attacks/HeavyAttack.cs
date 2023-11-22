@@ -5,6 +5,8 @@ using UnityEngine;
 public class HeavyAttack : MonoBehaviour
 {
     [SerializeField] private int Player;
+    [SerializeField] private DoDamage doDamage;
+    [SerializeField] private float multiplier;
     private KeyCode HeavyAttackKeyCode;
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
@@ -13,7 +15,7 @@ public class HeavyAttack : MonoBehaviour
 
     void Start()
     {
-        if(Player != 1 || Player != 2)
+        if(Player != 1 && Player != 2)
         {
             Debug.Log("Player incorectly assigned");
             Application.Quit();
@@ -32,9 +34,10 @@ public class HeavyAttack : MonoBehaviour
 
     void Update()
     {
-        if (Player == 1 && Input.GetKeyDown(HeavyAttackKeyCode))
+        if ((Player == 1 || Player == 2) && Input.GetKeyDown(HeavyAttackKeyCode))
         {
             Attack();
+            doDamage.IsAttacking(multiplier);
         }
     }
 

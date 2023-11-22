@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class FlipPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private bool isFacingRight;
+    [SerializeField] private string flipAxis;
     void Start()
     {
         isFacingRight = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = Input.GetAxis(flipAxis);
 
                    // Flip the player if moving in the opposite direction
         if ((horizontalInput < 0 && !isFacingRight) || (horizontalInput > 0 && isFacingRight))
