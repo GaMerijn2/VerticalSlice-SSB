@@ -15,6 +15,8 @@ public class Lives : MonoBehaviour
         if (currentLives <= 0)
         {
             gameObject.SetActive(false);
+            currentLives = 0;
         }
+        
     }
 }
