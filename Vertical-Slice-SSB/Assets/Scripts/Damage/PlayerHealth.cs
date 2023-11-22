@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerHealthScript : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI DamageDisplay;
 
 
     public float damage;
+    private int wholeDamage;
 
     void Start()
     {
@@ -18,8 +19,8 @@ public class PlayerHealthScript : MonoBehaviour
 
     void Update()
     {
-        DamageDisplay.text = damage.ToString() + "%";
-        
+        wholeDamage = (int)damage;
+        DamageDisplay.text = wholeDamage.ToString() + "%";   
     }
 
 
