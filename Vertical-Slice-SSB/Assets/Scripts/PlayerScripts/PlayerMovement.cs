@@ -14,15 +14,24 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private bool groundCheckBool;
 
+    [SerializeField] private float horizontalInput;
+
+    [SerializeField] private string horizontalInputAxis;
+    [SerializeField] private string jumpAxis;
+    //private float verticalInput;
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        //moveSpeed = 5f;
-        //jumpPower = 5f;
+        FindPlayerTag();
+    }
+    private void FindPlayerTag()
+    {
+        rb = transform.GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
+        horizontalInput = Input.GetAxis(horizontalInputAxis);
         Move();
     }
 
@@ -34,13 +43,13 @@ public class PlayerMovement : MonoBehaviour
             GroundCheck();
 
             //Moves the player Left and Right based on the input
-            Vector3 moveInput = new Vector3(Input.GetAxis("Horizontal"), rb.velocity.y,  rb.velocity.z);
+            Vector3 moveInput = new Vector3(horizontalInput, rb.velocity.y,  rb.velocity.z);
             rb.MovePosition(transform.position + moveInput * Time.deltaTime * moveSpeed);
 
             //lets the player jump when W or Space is pressed
             if (groundCheckBool == true)
             {
-                rb.velocity = new Vector3(rb.velocity.x,Input.GetAxis("Jump") * jumpPower, rb.velocity.z);
+                rb.velocity = new Vector3(rb.velocity.x,Input.GetAxis(jumpAxis) * jumpPower, rb.velocity.z);
             }
         }
         else if(rb == null) // checks if the rigidbody is null
