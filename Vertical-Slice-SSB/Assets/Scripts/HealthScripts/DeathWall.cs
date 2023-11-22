@@ -5,13 +5,31 @@ using UnityEngine;
 public class DeathWall : MonoBehaviour
 {
     public Vector3 spawn = Vector3.zero;
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "DeathWall")
-        {
+    private bool isDamaging = false;
 
-            // Reset de position naar (0, 0, 0)
-            transform.position = spawn;
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Lives livesScript = collision.gameObject.GetComponent<Lives>();
+            if (livesScript != null && isDamaging == false)
+            {
+                
+                livesScript.DecreaseLives();
+                isDamaging = true;
+                collision.gameObject.transform.position = spawn;
+                reset_damage();
+            }
         }
+    }
+        void reset_damage()
+    {
+        if (isDamaging)
+        {
+            isDamaging = false;
+        }
+
     }
 }
