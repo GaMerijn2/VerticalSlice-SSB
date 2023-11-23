@@ -15,7 +15,7 @@ public class FlipPlayer : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis(flipAxis);
 
-                   // Flip the player if moving in the opposite direction
+        // Flip the player if moving in the opposite direction
         if ((horizontalInput < 0 && !isFacingRight) || (horizontalInput > 0 && isFacingRight))
         {
             // Flip the scale of the player along the x-axis
