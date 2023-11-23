@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class Lives : MonoBehaviour
+public class JigglyPuffsLives : MonoBehaviour
 {
     public int startingLives = 3;
     public int currentLives;
-
+    public WinScreen WinScreen;
     private void Awake()
     {
-      currentLives = startingLives;
+        currentLives = startingLives;
     }
     public void DecreaseLives()
     {
@@ -16,7 +16,8 @@ public class Lives : MonoBehaviour
         {
             gameObject.SetActive(false);
             currentLives = 0;
+            WinScreen.JigglyPuffWin();
         }
-        
+
     }
 }
