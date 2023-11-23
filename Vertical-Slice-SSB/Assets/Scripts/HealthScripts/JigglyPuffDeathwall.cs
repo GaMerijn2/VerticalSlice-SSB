@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JigglyPuffDeathwall : MonoBehaviour
 {
-    public Vector3 spawn = Vector3.zero;
+    public GameObject spawnPos;
     public bool isDamaging = false;
     public float resetDamageDelay = 0.25f;
 
@@ -17,7 +17,7 @@ public class JigglyPuffDeathwall : MonoBehaviour
             {
                 livesScript.DecreaseLives();
                 isDamaging = true;
-                collision.gameObject.transform.position = spawn;
+                collision.gameObject.transform.position = spawnPos.transform.position;
                 StartCoroutine(ResetDamageAfterDelay());
             }
         }
