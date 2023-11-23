@@ -1756,7 +1756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053d7e951bc0eff4897f51945d2442c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 0}
+  spawnPos: {fileID: 918670235}
   isDamaging: 0
   resetDamageDelay: 0.25
 --- !u!33 &1145778138079311819
@@ -1936,7 +1936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053d7e951bc0eff4897f51945d2442c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 0}
+  spawnPos: {fileID: 918670235}
   isDamaging: 0
   resetDamageDelay: 0.25
 --- !u!4 &1678149423185573058
@@ -2095,7 +2095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053d7e951bc0eff4897f51945d2442c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 0}
+  spawnPos: {fileID: 918670235}
   isDamaging: 0
   resetDamageDelay: 0.25
 --- !u!1 &2007069939845632654
@@ -4290,7 +4290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053d7e951bc0eff4897f51945d2442c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 0}
+  spawnPos: {fileID: 918670235}
   isDamaging: 0
   resetDamageDelay: 0.25
 --- !u!1 &4410891952647208395
@@ -4837,7 +4837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912192045060159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.59390676, y: -3.2100968, z: 19.760283}
+  m_LocalPosition: {x: 0.5939063, y: -3.2100968, z: 19.760283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5172,7 +5172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912193496899404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.59390676, y: -3.2100968, z: 19.760283}
+  m_LocalPosition: {x: 0.5939063, y: -3.2100968, z: 19.760283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
