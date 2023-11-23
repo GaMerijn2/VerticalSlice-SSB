@@ -29,7 +29,6 @@ public class DoubleJump : MonoBehaviour
 
     private void Start()
     {
-        groundCheckObj = GameObject.FindGameObjectWithTag("GroundCheck");
         characterName = GetComponent<ObjectTags>().characterName;
     }
     private void FixedUpdate()
@@ -52,6 +51,7 @@ public class DoubleJump : MonoBehaviour
             // Button pressed, perform action
             this.isJumpButtonDown = true;
             Jump();
+            DoubleJumpCheck();
         }
 
         if (jumpInput == 0f)
@@ -63,9 +63,6 @@ public class DoubleJump : MonoBehaviour
 
     private void Jump()
     {
-
-
-
         if (characterName == "Kirby")
         {
             CanJumpMore = true;
@@ -73,18 +70,17 @@ public class DoubleJump : MonoBehaviour
 
         if (groundCheckBool)
         {
-            if (true)
-            {
-                CanDoubleJump = true;
-                playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower, playerMovement.rb.velocity.z);
-                if (CanDoubleJump)
-                {
-                    CanDoubleJump = false;
-                    playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower, playerMovement.rb.velocity.z);
+            CanDoubleJump = true;
+            playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower, playerMovement.rb.velocity.z);
 
-                }
-            }
         }
     }
-
+    private void DoubleJumpCheck()
+    {
+        if (CanDoubleJump)
+        {
+            CanDoubleJump = false;
+            playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower, playerMovement.rb.velocity.z);
+        }
+    }
 }
