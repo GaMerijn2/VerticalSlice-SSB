@@ -178,11 +178,8 @@ MonoBehaviour:
   rb: {fileID: 242017364}
   moveSpeed: 7
   jumpPower: 4
-  groundCheckObj: {fileID: 1972361813}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  groundCheckBool: 0
+  horizontalInput: 0
+  horizontalInputAxis: 
 --- !u!114 &242017366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingRight: 0
+  flipAxis: 
 --- !u!136 &242017367
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -515,11 +513,8 @@ MonoBehaviour:
   rb: {fileID: 360111609}
   moveSpeed: 7
   jumpPower: 4
-  groundCheckObj: {fileID: 1208140466}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  groundCheckBool: 0
+  horizontalInput: 0
+  horizontalInputAxis: 
 --- !u!114 &360111611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,6 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingRight: 0
+  flipAxis: 
 --- !u!136 &360111612
 CapsuleCollider:
   m_ObjectHideFlags: 0
