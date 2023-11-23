@@ -50,14 +50,14 @@ public class DoubleJump : MonoBehaviour
         if (jumpInput > 0f && !isJumpButtonDown)
         {
             // Button pressed, perform action
-            isJumpButtonDown = true;
+            this.isJumpButtonDown = true;
             Jump();
         }
 
         if (jumpInput == 0f)
         {
             // Button released, reset the flag
-            isJumpButtonDown = false;
+            this.isJumpButtonDown = false;
         }
     }
 
