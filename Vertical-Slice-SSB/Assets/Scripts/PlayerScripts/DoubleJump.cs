@@ -58,6 +58,7 @@ public class DoubleJump : MonoBehaviour
         {
             // Button released, reset the flag
             this.isJumpButtonDown = false;
+            //test
         }
     }
 
@@ -72,7 +73,7 @@ public class DoubleJump : MonoBehaviour
         {
             CanDoubleJump = true;
             playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower, playerMovement.rb.velocity.z);
-
+            // test again
         }
     }
     private void DoubleJumpCheck()
