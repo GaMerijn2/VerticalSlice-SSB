@@ -72,7 +72,7 @@ public class DoubleJump : MonoBehaviour
         {
             CanDoubleJump = true;
             playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower, playerMovement.rb.velocity.z);
-            // test
+            // test again
         }
     }
     private void DoubleJumpCheck()
