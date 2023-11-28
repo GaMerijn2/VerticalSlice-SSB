@@ -58,6 +58,7 @@ public class DoubleJump : MonoBehaviour
         {
             // Button released, reset the flag
             this.isJumpButtonDown = false;
+            //test
         }
     }
 
