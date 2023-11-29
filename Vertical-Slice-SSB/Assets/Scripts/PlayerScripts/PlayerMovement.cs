@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
             //Moves the player Left and Right based on the input
             Vector3 moveInput = new Vector3(horizontalInput, rb.velocity.y,  rb.velocity.z);
             rb.MovePosition(transform.position + moveInput * Time.deltaTime * moveSpeed);
+
+            Vector3 lasPos = transform.position;
+            float speed = (transform.position - lasPos).magnitude / Time.deltaTime;
+
         }
         else if(rb == null) // checks if the rigidbody is null
         {

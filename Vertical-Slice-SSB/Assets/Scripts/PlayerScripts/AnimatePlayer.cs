@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnimatePlayer : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody rb;
-    private GameObject player;
+    private float xPos;
 
     private void Start()
     {
@@ -15,8 +16,22 @@ public class AnimatePlayer : MonoBehaviour
     }
     private void Update()
     {
-        float animVelocity = rb.velocity.magnitude;
-        animator.SetFloat("Velocity", animVelocity);
-        Debug.Log("Velocity: " + animVelocity + ".");
-    }
+        Vector3 lastPos = this.transform.position;
+
+        Debug.Log(lastPos);
+        if (xPos == this.gameObject.transform.position.x)
+        {
+            animator.SetBool("IsWalking", false);
+            animator.speed = 1f;
+
+        }
+        else
+        {
+            animator.SetBool("IsWalking", true);
+            animator.speed = 2f;
+
+        }
+        xPos = this.gameObject.transform.position.x; 
+     }
+
 }
