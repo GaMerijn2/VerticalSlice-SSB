@@ -5,11 +5,11 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI DamageDisplay;
+    [SerializeField] public TextMeshProUGUI DamageDisplay;
 
 
     public float damage;
-    private int wholeDamage;
+    public int wholeDamage;
 
     void Start()
     {
