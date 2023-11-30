@@ -65,7 +65,7 @@ public class DoubleJump : MonoBehaviour
         else if (jumpCylce == 4) // if you have reached the max amount of jumps
         {
             jumpCylce = 0;
-            normalForce = 1yf;
+            normalForce = 1f;
         }
 
         if (jumpInput > 0f && !isJumpButtonDown) // checks if the jumpinput is more then 0 and the jump bool is false
