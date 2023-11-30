@@ -202,7 +202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.23582563, y: -4.451639, z: 7.4884753}
+  m_LocalPosition: {x: -0.23582552, y: -4.451639, z: 7.4884753}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -374,7 +374,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpAmountLeft: 5
-  jumpPower: 1
+  jumpAmount: 0
+  secondJumpPower: 1
   playerMovement: {fileID: 360111610}
   groundCheckObj: {fileID: 1208140466}
   groundLayer:
@@ -955,7 +956,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295981236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23582563, y: -4.451639, z: 7.4884753}
+  m_LocalPosition: {x: -0.23582552, y: -4.451639, z: 7.4884753}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1239,7 +1240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpAmountLeft: 5
-  jumpPower: 1
+  jumpAmount: 0
+  secondJumpPower: 1
   playerMovement: {fileID: 2130961173}
   groundCheckObj: {fileID: 728229463}
   groundLayer:

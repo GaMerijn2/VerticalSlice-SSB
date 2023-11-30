@@ -6,8 +6,7 @@ using UnityEngine.XR;
 
 public class DoubleJump : MonoBehaviour
 {
-    [SerializeField] private float jumpAmountLeft = 5f;
-    [SerializeField] private float jumpPower = 1f;
+    [SerializeField] private float secondJumpPower = 1f;
     [SerializeField] private PlayerMovement playerMovement;
 
     //GroundCheck Objects
@@ -27,9 +26,17 @@ public class DoubleJump : MonoBehaviour
 
     [SerializeField] private bool isJumpButtonDown = false;
 
+
+    private int jumpCylce = 0;
+    private int normalJumps = 2;
+    private int extraJumps = 5;
+    private int normalForce = 1;
+
+
     private void Start()
     {
         characterName = GetComponent<ObjectTags>().characterName;
+        canJump = true;
     }
     private void FixedUpdate()
     {
@@ -46,8 +53,33 @@ public class DoubleJump : MonoBehaviour
     }
     private void JumpInputCheck()
     {
+
+        if (jumpCylce == 0 && groundCheckBool)
+        {
+
+        }
+        else if (jumpCylce > 0 && jumpCylce < 4)
+        {
+
+        }
+        else if (jumpCylce == 4)
+        {
+            jumpCylce = 0;
+        }
+
         if (jumpInput > 0f && !isJumpButtonDown)
         {
+            if (jumpCylce > normalJumps)
+            {
+                if (jumpCylce > extraJumps)
+                {
+                    Jump(normalForce / 2);
+                }
+            }
+            else
+            {
+                Jump(normalForce);
+            }
             // Button pressed, perform action
             this.isJumpButtonDown = true;
             Jump();
@@ -60,44 +92,38 @@ public class DoubleJump : MonoBehaviour
         }
     }
 
-    private void Jump()
+    private void Jump( int force)
+    {
+        jumpCylce++;
+        // First jump from ground
+        if (groundCheckBool)
+        {
+            CanDoubleJump = true;
+            checkCharacter();
+            normalJump(playerMovement.jumpPower);
+        }
+    }
+
+    private void DoJump()
+    {
+        canJump = true;
+        normalJump(secondJumpPower);
+    }
+
+    private void normalJump(float jumpPower)
+    {
+        playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * jumpPower, playerMovement.rb.velocity.z);
+    }
+
+    private void checkCharacter()
     {
         if (characterName == "Kirby" || characterName == "Jigglypuff")
         {
             CanJumpMore = true;
-        }
-
-        if (groundCheckBool)
-        {
-            CanDoubleJump = true;
-            playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower, playerMovement.rb.velocity.z);
-            if(jumpAmountLeft == 0 )
+            if (characterName == "Kirby")
             {
-                jumpAmountLeft = 5f;
+                secondJumpPower = playerMovement.jumpPower / 2;
             }
         }
-        else if (CanDoubleJump)
-        {
-            CanDoubleJump = false;
-            playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower, playerMovement.rb.velocity.z);
-        }
-        else if(CanJumpMore) 
-        { 
-            for (int i = 0; i < jumpAmountLeft; i++)
-            {
-                if (canJump)
-                {
-                    canJump = false;
-                    DoJump();
-                }
-            }
-            CanJumpMore = false;
-        }
-    }
-    private void DoJump()
-    {
-        canJump = true;
-        Debug.Log(jumpAmountLeft + " Jumps left.");
-        playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower / 2, playerMovement.rb.velocity.z);
     }
 }
