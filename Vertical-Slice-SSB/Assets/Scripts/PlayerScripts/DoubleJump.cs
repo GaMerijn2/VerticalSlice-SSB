@@ -6,7 +6,7 @@ using UnityEngine.XR;
 
 public class DoubleJump : MonoBehaviour
 {
-    [SerializeField] private float jumpAmount = 1f;
+    [SerializeField] private float jumpAmountLeft = 5f;
     [SerializeField] private float jumpPower = 1f;
     [SerializeField] private PlayerMovement playerMovement;
 
@@ -51,20 +51,18 @@ public class DoubleJump : MonoBehaviour
             // Button pressed, perform action
             this.isJumpButtonDown = true;
             Jump();
-            DoubleJumpCheck();
         }
 
         if (jumpInput == 0f)
         {
             // Button released, reset the flag
             this.isJumpButtonDown = false;
-            //test
         }
     }
 
     private void Jump()
     {
-        if (characterName == "Kirby")
+        if (characterName == "Kirby" || characterName == "Jigglypuff")
         {
             CanJumpMore = true;
         }
@@ -73,15 +71,33 @@ public class DoubleJump : MonoBehaviour
         {
             CanDoubleJump = true;
             playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower, playerMovement.rb.velocity.z);
-            // test again
+            if(jumpAmountLeft == 0 )
+            {
+                jumpAmountLeft = 5f;
+            }
         }
-    }
-    private void DoubleJumpCheck()
-    {
-        if (CanDoubleJump)
+        else if (CanDoubleJump)
         {
             CanDoubleJump = false;
             playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower, playerMovement.rb.velocity.z);
         }
+        else if(CanJumpMore) 
+        { 
+            for (int i = 0; i < jumpAmountLeft; i++)
+            {
+                if (canJump)
+                {
+                    canJump = false;
+                    DoJump();
+                }
+            }
+            CanJumpMore = false;
+        }
+    }
+    private void DoJump()
+    {
+        canJump = true;
+        Debug.Log(jumpAmountLeft + " Jumps left.");
+        playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower / 2, playerMovement.rb.velocity.z);
     }
 }
