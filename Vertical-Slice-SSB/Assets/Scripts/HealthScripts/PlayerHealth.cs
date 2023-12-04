@@ -10,10 +10,12 @@ public class PlayerHealth : MonoBehaviour
 
     public float damage;
     public int wholeDamage;
+    public int maxWholeDamage;
 
     void Start()
     {
         damage = 0; //The amount of damage the player has taken
+        maxWholeDamage = 400;
     }
 
 
@@ -21,6 +23,10 @@ public class PlayerHealth : MonoBehaviour
     {
         wholeDamage = (int)damage;
         DamageDisplay.text = wholeDamage.ToString() + "%";   
+        if(wholeDamage> maxWholeDamage)
+        {
+            damage = 400;
+        }
     }
 
 
