@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnimatePlayer : MonoBehaviour
@@ -18,7 +15,6 @@ public class AnimatePlayer : MonoBehaviour
     {
         Vector3 lastPos = this.transform.position;
 
-        Debug.Log(lastPos);
         if (xPos == this.gameObject.transform.position.x)
         {
             animator.SetBool("IsWalking", false);
@@ -31,7 +27,11 @@ public class AnimatePlayer : MonoBehaviour
             animator.speed = 2f;
 
         }
-        xPos = this.gameObject.transform.position.x; 
-     }
+        xPos = this.gameObject.transform.position.x;
+    }
+    public void setAnimation(string name, bool animationBool)
+    {
+        animator.SetBool(name, animationBool);
+    }
 
 }
