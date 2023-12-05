@@ -1285,7 +1285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 672.1981, y: -382.63232}
+  m_AnchoredPosition: {x: 21.39, y: -382.63232}
   m_SizeDelta: {x: 409.9197, y: 279.09885}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &857145266
@@ -2248,7 +2248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -255, y: -382.63232}
+  m_AnchoredPosition: {x: 288, y: -382.63232}
   m_SizeDelta: {x: 409.91974, y: 279.09885}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &135544386738961742
@@ -3388,6 +3388,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageDisplay: {fileID: 1384073862}
   damage: 0
+  wholeDamage: 0
+  maxWholeDamage: 0
 --- !u!114 &2793155839933849482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3502,6 +3504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2990526331882809551}
   - component: {fileID: 2990526331882809552}
+  - component: {fileID: 2990526331882809553}
   m_Layer: 0
   m_Name: gamemanager
   m_TagString: Untagged
@@ -3538,6 +3541,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KirbyWinUI: {fileID: 6524673851738261751}
   jigglypuffWinUI: {fileID: 6941067956261274905}
+--- !u!114 &2990526331882809553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2990526331882809549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b35cef3286f916478c8aa47f8cbf600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2998713646960240436
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5200,6 +5215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageDisplay: {fileID: 2998713646960240439}
   damage: 0
+  wholeDamage: 0
+  maxWholeDamage: 0
 --- !u!114 &5035254571026621266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5405,7 +5422,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912192045060159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.59390634, y: -3.2100968, z: 19.760283}
+  m_LocalPosition: {x: 0.5939069, y: -3.2100968, z: 19.760283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5740,7 +5757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912193496899404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.59390634, y: -3.2100968, z: 19.760283}
+  m_LocalPosition: {x: 0.5939069, y: -3.2100968, z: 19.760283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

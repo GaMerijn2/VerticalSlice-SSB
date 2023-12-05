@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class KirbysLives : MonoBehaviour
@@ -10,7 +10,7 @@ public class KirbysLives : MonoBehaviour
 
     private void Awake()
     {
-      currentLives = startingLives;
+        currentLives = startingLives;
         livesText.text = startingLives.ToString() + " lives left";
 
     }
@@ -25,6 +25,6 @@ public class KirbysLives : MonoBehaviour
             currentLives = 0;
             WinScreen.Kirbywin();
         }
-        
+
     }
 }
