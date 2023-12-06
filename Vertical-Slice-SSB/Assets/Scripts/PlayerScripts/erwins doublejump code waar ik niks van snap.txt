@@ -6,9 +6,7 @@ using UnityEngine.XR;
 
 public class DoubleJump : MonoBehaviour
 {
-    [SerializeField] private float jumpAmountLeft = 5f;
-    [SerializeField] private float jumpPower = 3.9f;
-    [SerializeField] private float secondJumpPower; // asigned in the CheckCharacter()
+    [SerializeField] private float secondJumpPower = 1f;
     [SerializeField] private PlayerMovement playerMovement;
 
     //GroundCheck Objects
@@ -39,13 +37,12 @@ public class DoubleJump : MonoBehaviour
     {
         characterName = GetComponent<ObjectTags>().characterName;
         canJump = true;
-        jumpPower = playerMovement.jumpPower;
     }
     private void FixedUpdate()
     {
         GroundCheck();
         JumpInputCheck();
-        jumpInput = Input.GetAxis(jumpAxis); // gets the input for each character
+        jumpInput = Input.GetAxis(jumpAxis);
     }
 
     private bool GroundCheck()
@@ -56,11 +53,38 @@ public class DoubleJump : MonoBehaviour
     }
     private void JumpInputCheck()
     {
-        if (jumpInput > 0f && !isJumpButtonDown)
+
+        if (jumpCylce == 0 && groundCheckBool) // if its the first jump and you're standing on the ground.
         {
-            this.isJumpButtonDown = true;
-            Jump();
+            Jump(normalForce);
+        }
+        else if (jumpCylce > 0 && jumpCylce < 4) // Between the 1st jump and the fourth jump, have these variables.
+        {
+             normalForce = normalForce / 2f;
+        }
+        else if (jumpCylce == 4) // if you have reached the max amount of jumps
+        {
+            jumpCylce = 0;
+            normalForce = 1f;
+        }
+
+        if (jumpInput > 0f && !isJumpButtonDown) // checks if the jumpinput is more then 0 and the jump bool is false
+        {
+            if (jumpCylce > normalJumps) // 
+            {
+                if (jumpCylce > extraJumps) // 
+                {
+                    Jump(normalForce / 2);
+                }
+            }
+            else // if its the first jump and you're standing on the ground.
+            {
+                Jump(normalForce);
+            }
+
             // Button pressed, perform action
+            this.isJumpButtonDown = true;
+            Jump(normalForce);
         }
 
         if (jumpInput == 0f)
@@ -70,57 +94,26 @@ public class DoubleJump : MonoBehaviour
         }
     }
 
-    private void Jump()
+    private void Jump(float force)
     {
-        // checks the unique effects of the characters
-        CheckCharacter(); 
-
-        // the first jump, when you're standing on the ground
-        if (groundCheckBool)
-        {
-            extraJumps = 5;
-            CanDoubleJump = true;
-            normalJump(jumpPower);
-        }
-        // the second jump from the ground
-        else if (CanDoubleJump)
-        {
-            CanDoubleJump = false;
-            normalJump(jumpPower);
-        }
-        // checks if the character can jump more then 2 times
-        else if (CanJumpMore)
-        {
-            //checks how many jumps it can do before stopping
-            if (extraJumps > 0)
-            {
-                extraJumps--; // removes 1 jump from the max jumps
-                Debug.Log(extraJumps + " Jumps left.");
-                normalJump(secondJumpPower);
-            }
-            CanJumpMore = false;
-        }
+        jumpCylce++;
+        checkCharacter();
+        normalJump(force);
     }
 
     private void normalJump(float jumpPower)
     {
-        // default jump with assignable jumpPower
         playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * jumpPower, playerMovement.rb.velocity.z);
     }
 
-    private void CheckCharacter()
+    private void checkCharacter()
     {
-        // checks the characters names
         if (characterName == "Kirby" || characterName == "Jigglypuff")
         {
-            CanJumpMore = true; // if the characers names are like above, set it so they can jump more then twice
+            CanJumpMore = true;
             if (characterName == "Kirby")
             {
-                secondJumpPower = playerMovement.jumpPower / 1.5f; // secondairy jump power for Kirby
-            }
-            if (characterName == "Jigglypuff")
-            {
-                secondJumpPower = playerMovement.jumpPower / 1.5f; // secondairy jump power for Jigglypuff
+                secondJumpPower = playerMovement.jumpPower / 2;
             }
         }
     }
