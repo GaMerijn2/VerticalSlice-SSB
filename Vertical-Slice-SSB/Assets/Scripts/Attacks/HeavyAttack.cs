@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HeavyAttack : MonoBehaviour
 {
@@ -15,7 +13,7 @@ public class HeavyAttack : MonoBehaviour
 
     void Start()
     {
-        if(Player != 1 && Player != 2)
+        if (Player != 1 && Player != 2)
         {
             Debug.Log("Player incorectly assigned");
             Application.Quit();
