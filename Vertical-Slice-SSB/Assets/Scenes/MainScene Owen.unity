@@ -2992,7 +2992,6 @@ GameObject:
   - component: {fileID: 1117592685493595886}
   - component: {fileID: 1117592685493595884}
   - component: {fileID: 1117592685493595887}
-  - component: {fileID: 1117592685493595885}
   - component: {fileID: 1117592685493595888}
   m_Layer: 3
   m_Name: DeathWall Down
@@ -3009,21 +3008,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117592685493595881}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1117592685493595885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117592685493595881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9a50f5898c82c4080c4d6fd79be62d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPos: {fileID: 918670235}
-  isDamaging: 0
-  resetDamageDelay: 0.25
 --- !u!4 &1117592685493595886
 Transform:
   m_ObjectHideFlags: 0
@@ -3061,7 +3045,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1117592685493595881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 053d7e951bc0eff4897f51945d2442c9, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e93e9fb77052b45952e97795ae68e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {fileID: 918670235}
@@ -3193,8 +3177,7 @@ GameObject:
   - component: {fileID: 1672796990823688443}
   - component: {fileID: 1672796990823688441}
   - component: {fileID: 1672796990823688440}
-  - component: {fileID: 1672796990823688446}
-  - component: {fileID: 1672796990823688447}
+  - component: {fileID: 1672796990823688444}
   m_Layer: 3
   m_Name: DeathWall Right
   m_TagString: DeathWall
@@ -3217,7 +3200,7 @@ Transform:
   m_Father: {fileID: 651028463}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &1672796990823688446
+--- !u!114 &1672796990823688444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3226,22 +3209,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1672796990823688442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9a50f5898c82c4080c4d6fd79be62d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPos: {fileID: 918670235}
-  isDamaging: 0
-  resetDamageDelay: 0.25
---- !u!114 &1672796990823688447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672796990823688442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 053d7e951bc0eff4897f51945d2442c9, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e93e9fb77052b45952e97795ae68e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {fileID: 918670235}
@@ -3331,7 +3299,6 @@ GameObject:
   - component: {fileID: 1866882241327999651}
   - component: {fileID: 1866882241327999653}
   - component: {fileID: 1866882241327999650}
-  - component: {fileID: 1866882241327999652}
   - component: {fileID: 1866882241327999654}
   m_Layer: 3
   m_Name: DeathWall Up
@@ -3368,21 +3335,6 @@ Transform:
   m_Father: {fileID: 651028463}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1866882241327999652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866882241327999648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9a50f5898c82c4080c4d6fd79be62d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPos: {fileID: 918670235}
-  isDamaging: 0
-  resetDamageDelay: 0.25
 --- !u!33 &1866882241327999653
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3400,7 +3352,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1866882241327999648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 053d7e951bc0eff4897f51945d2442c9, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e93e9fb77052b45952e97795ae68e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {fileID: 918670235}
@@ -3739,7 +3691,8 @@ MonoBehaviour:
   DamageDisplay: {fileID: 1384073862}
   damage: 0
   wholeDamage: 0
-  maxWholeDamage: 0
+  MaxTransWholeDamage: 0
+  MaxDamage: 0
 --- !u!114 &2793155839933849482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3873,6 +3826,8 @@ GameObject:
   - component: {fileID: 2990526331882809551}
   - component: {fileID: 2990526331882809552}
   - component: {fileID: 2990526331882809553}
+  - component: {fileID: 2990526331882809554}
+  - component: {fileID: 2990526331882809555}
   m_Layer: 0
   m_Name: gamemanager
   m_TagString: Untagged
@@ -3923,6 +3878,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartButton: {fileID: 437323407}
   paused: 0
+--- !u!114 &2990526331882809554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2990526331882809549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b595b3fa4067948abee7d000268d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 1384073862}
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  TransColor: {r: 0.85882354, g: 0.43529412, b: 0.019607844, a: 1}
+  maxColor: {r: 0.43529412, g: 0, b: 0.015686275, a: 1}
+  playerHealth: {fileID: 2793155839933849481}
+--- !u!114 &2990526331882809555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2990526331882809549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b595b3fa4067948abee7d000268d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text: {fileID: 2998713646960240439}
+  initialColor: {r: 1, g: 1, b: 1, a: 1}
+  TransColor: {r: 0.85882354, g: 0.43529412, b: 0.019607844, a: 1}
+  maxColor: {r: 0.4339623, g: 0, b: 0.015557155, a: 1}
+  playerHealth: {fileID: 5035254571026621265}
 --- !u!224 &2998713646960240436
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5181,21 +5170,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4387665252641775142}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &4387665252641775138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4387665252641775142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9a50f5898c82c4080c4d6fd79be62d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPos: {fileID: 918670235}
-  isDamaging: 0
-  resetDamageDelay: 0.25
 --- !u!1 &4387665252641775142
 GameObject:
   m_ObjectHideFlags: 0
@@ -5207,7 +5181,6 @@ GameObject:
   - component: {fileID: 4387665252641775143}
   - component: {fileID: 4387665252641775137}
   - component: {fileID: 4387665252641775136}
-  - component: {fileID: 4387665252641775138}
   - component: {fileID: 4387665252641775144}
   m_Layer: 3
   m_Name: DeathWall Left
@@ -5240,7 +5213,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4387665252641775142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 053d7e951bc0eff4897f51945d2442c9, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e93e9fb77052b45952e97795ae68e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {fileID: 918670235}
@@ -5586,7 +5559,8 @@ MonoBehaviour:
   DamageDisplay: {fileID: 2998713646960240439}
   damage: 0
   wholeDamage: 0
-  maxWholeDamage: 0
+  MaxTransWholeDamage: 0
+  MaxDamage: 0
 --- !u!114 &5035254571026621266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5653,13 +5627,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5035254571026621252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87ff5a9ae8023741a11ebc4b594fa81, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cfce516f6748ff4380e6bdd7acc77c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startingLives: 3
   currentLives: 0
   WinScreen: {fileID: 2990526331882809552}
-  livesText: {fileID: 104183309}
+  livesText: {fileID: 261401390}
+  isP1: 0
+  isP2: 1
 --- !u!1 &5035254571900872194
 GameObject:
   m_ObjectHideFlags: 0
@@ -5792,7 +5768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912192045060159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.593907, y: -3.2100968, z: 19.760283}
+  m_LocalPosition: {x: 0.59390706, y: -3.2100968, z: 19.760283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6127,7 +6103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912193496899404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.593907, y: -3.2100968, z: 19.760283}
+  m_LocalPosition: {x: 0.59390706, y: -3.2100968, z: 19.760283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
-using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -10,25 +8,25 @@ public class PlayerHealth : MonoBehaviour
 
     public float damage;
     public int wholeDamage;
-    public int maxWholeDamage;
+    public int MaxTransWholeDamage;
+    public int MaxDamage;
+
+    public void Awake()
+    {
+        MaxTransWholeDamage = 100;
+        MaxDamage = 200;
+    }
 
     void Start()
     {
         damage = 0; //The amount of damage the player has taken
-        maxWholeDamage = 400;
+
     }
 
 
     void Update()
     {
         wholeDamage = (int)damage;
-        DamageDisplay.text = wholeDamage.ToString() + "%";   
-        if(wholeDamage> maxWholeDamage)
-        {
-            damage = 400;
-        }
+        DamageDisplay.text = wholeDamage.ToString() + "%";
     }
-
-
-
 }
