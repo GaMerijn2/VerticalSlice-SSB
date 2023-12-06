@@ -1852,9 +1852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9a50f5898c82c4080c4d6fd79be62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 918670235}
-  isDamaging: 0
-  resetDamageDelay: 0.25
 --- !u!4 &1117592685493595886
 Transform:
   m_ObjectHideFlags: 0
@@ -1895,9 +1892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053d7e951bc0eff4897f51945d2442c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 918670235}
-  isDamaging: 0
-  resetDamageDelay: 0.25
 --- !u!33 &1145778138079311819
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2176,9 +2170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9a50f5898c82c4080c4d6fd79be62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 918670235}
-  isDamaging: 0
-  resetDamageDelay: 0.25
 --- !u!114 &1672796990823688447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2191,9 +2182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053d7e951bc0eff4897f51945d2442c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 918670235}
-  isDamaging: 0
-  resetDamageDelay: 0.25
 --- !u!4 &1678149423185573058
 Transform:
   m_ObjectHideFlags: 0
@@ -2359,9 +2347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9a50f5898c82c4080c4d6fd79be62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 918670235}
-  isDamaging: 0
-  resetDamageDelay: 0.25
 --- !u!33 &1866882241327999653
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2382,9 +2367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053d7e951bc0eff4897f51945d2442c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 918670235}
-  isDamaging: 0
-  resetDamageDelay: 0.25
 --- !u!4 &1973753296098854026
 Transform:
   m_ObjectHideFlags: 0
@@ -2904,8 +2886,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b3e64f9f0ebad47889c2db4c83e140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpAmount: 1
+  jumpAmountLeft: 5
   jumpPower: 1
+  secondJumpPower: 0
   playerMovement: {fileID: 2793155839933848701}
   groundCheckObj: {fileID: 2793155841197638453}
   groundLayer:
@@ -2945,6 +2928,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageDisplay: {fileID: 1384073862}
   damage: 0
+  wholeDamage: 0
+  MaxTransWholeDamage: 0
+  MaxDamage: 0
 --- !u!114 &2793155839933849482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3014,10 +3000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02806705c8d8d0748ad2c3b00f54a4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingLives: 3
-  currentLives: 0
-  WinScreen: {fileID: 2990526331882809552}
-  livesText: {fileID: 261401390}
 --- !u!96 &2793155839933849487
 TrailRenderer:
   serializedVersion: 2
@@ -5108,9 +5090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9a50f5898c82c4080c4d6fd79be62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 918670235}
-  isDamaging: 0
-  resetDamageDelay: 0.25
 --- !u!1 &4387665252641775142
 GameObject:
   m_ObjectHideFlags: 0
@@ -5158,9 +5137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053d7e951bc0eff4897f51945d2442c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 918670235}
-  isDamaging: 0
-  resetDamageDelay: 0.25
 --- !u!1 &4410891952647208395
 GameObject:
   m_ObjectHideFlags: 0
@@ -5402,8 +5378,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b3e64f9f0ebad47889c2db4c83e140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpAmount: 1
+  jumpAmountLeft: 5
   jumpPower: 1
+  secondJumpPower: 0
   playerMovement: {fileID: 5035254571026621248}
   groundCheckObj: {fileID: 5035254571900872194}
   groundLayer:
@@ -5535,6 +5512,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageDisplay: {fileID: 2998713646960240439}
   damage: 0
+  wholeDamage: 0
+  MaxTransWholeDamage: 0
+  MaxDamage: 0
 --- !u!114 &5035254571026621266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5604,10 +5584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c87ff5a9ae8023741a11ebc4b594fa81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingLives: 3
-  currentLives: 0
-  WinScreen: {fileID: 2990526331882809552}
-  livesText: {fileID: 104183309}
 --- !u!96 &5035254571026621271
 TrailRenderer:
   serializedVersion: 2
@@ -5886,7 +5862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912192045060159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.6146784, y: -3.2605562, z: 19.527525}
+  m_LocalPosition: {x: 0.61467886, y: -3.2605562, z: 19.527525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6221,7 +6197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912193496899404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6146784, y: -3.2605562, z: 19.527525}
+  m_LocalPosition: {x: 0.61467886, y: -3.2605562, z: 19.527525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

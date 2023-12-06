@@ -1,4 +1,6 @@
+﻿using UnityEngine;
 public class AnimatePlayer : MonoBehaviour
+
 {
     private Animator animator;
     private Rigidbody rb;
