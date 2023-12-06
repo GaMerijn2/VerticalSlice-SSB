@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,5 +10,4 @@ public class TakeDamage : MonoBehaviour
     {
         Health.damage = Health.damage + damageAmount * multiplier; //Adds damage to the player health
     }
-
 }
