@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class AnimatePlayer : MonoBehaviour
 {
     private Animator animator;
@@ -33,5 +31,5 @@ public class AnimatePlayer : MonoBehaviour
     {
         animator.SetBool(name, animationBool);
     }
-
+    //resolve merge conflict
 }
