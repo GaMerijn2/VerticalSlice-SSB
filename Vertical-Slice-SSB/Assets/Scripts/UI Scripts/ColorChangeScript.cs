@@ -16,24 +16,24 @@ public class ColorChangeScript : MonoBehaviour
 
     void Update()
     {
-        float map(float s, float a1, float a2, float b1, float b2)
-        {
-            return b1 + (s - a1) * (b2 - b1) / (a2 - a1);
-        }
+        bool isBelowTrans = playerHealth.wholeDamage < 100;
 
-        float value = map(playerHealth.wholeDamage, 0, playerHealth.MaxTransWholeDamage, 0, 1);
+        float value = Map(
+            playerHealth.wholeDamage,
+            isBelowTrans ? 0 : playerHealth.MaxTransWholeDamage,
+            isBelowTrans ? playerHealth.MaxTransWholeDamage : playerHealth.MaxDamage,
+            0,
+            1
+        );
+        Text.color = Color.Lerp(
+            isBelowTrans ? initialColor : TransColor,
+            isBelowTrans ? TransColor : EndColor,
+            value
+        );
+    }
 
-        Text.color = Color.Lerp(initialColor, TransColor, value);
-        if (Text.color == TransColor)
-        {
-            //Debug.Log("Text color lerp");
-            float map2(float s, float a1, float a2, float b1, float b2)
-            {
-                return b1 + (s - a1) * (b2 - b1) / (a2 - a1);
-            }
-
-            float value2 = map2(playerHealth.MaxTransWholeDamage, 0, playerHealth.MaxDamage, 0, 1);
-            Text.color = Color.Lerp(initialColor, EndColor, value2);
-        }
+    float Map(float s, float a1, float a2, float b1, float b2)
+    {
+        return b1 + (s - a1) * (b2 - b1) / (a2 - a1);
     }
 }
