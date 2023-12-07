@@ -40,8 +40,8 @@ public class DoubleJump : MonoBehaviour
         characterName = GetComponent<ObjectTags>().characterName;
         canJump = true;
         jumpPower = playerMovement.jumpPower;
-        audioManager = GetComponent<AudioManager>();
-        audioSource = GetComponent<AudioSource>();
+        audioManager = GameObject.Find("JumpAudio").GetComponent<AudioManager>();
+        audioSource = GameObject.Find("JumpAudio").GetComponent<AudioSource>();
     }
     private void FixedUpdate()
     {
