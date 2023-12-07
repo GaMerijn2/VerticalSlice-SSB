@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private string horizontalInputAxis;
     [SerializeField] private Dash dash;
 
+    [SerializeField] private RandomAudioClip jumpClips;
+    [SerializeField] private AudioSource audioSource;
+
     //private float verticalInput;
 
     void Start()
@@ -21,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private void FindPlayerTag()
     {
         rb = transform.GetComponent<Rigidbody>();
+        audioSource = gameObject.GetComponent<AudioSource>();
+
     }
 
     void FixedUpdate()
