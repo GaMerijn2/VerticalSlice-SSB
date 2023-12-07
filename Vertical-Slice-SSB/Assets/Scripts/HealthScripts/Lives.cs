@@ -9,6 +9,7 @@ public class Lives : MonoBehaviour
     public bool isP1;
     public bool isP2;
     public Image[] liveimgs;
+    public PlayerHealth HealthReset;
 
     private void Awake()
     {
@@ -19,6 +20,8 @@ public class Lives : MonoBehaviour
     public void DecreaseLives()
     {
         currentLives--;
+        HealthReset.damage = 0f;
+
         if (currentLives >= 0 && currentLives < liveimgs.Length)
         {
             liveimgs[currentLives].gameObject.SetActive(false);
@@ -28,15 +31,27 @@ public class Lives : MonoBehaviour
         {
             if (isP1)
             {
-                WinScreen.Kirbywin();
+                KirbyWin();
             }
             else if (isP2)
             {
-                WinScreen.JigglyPuffWin();
+                JigglypuffWin();
             }
 
             gameObject.SetActive(false);
             currentLives = 0;
+
         }
+    }
+    public void KirbyWin()
+    {
+        WinScreen.Kirbywin();
+        Time.timeScale = 0f;
+
+    }
+    public void JigglypuffWin()
+    {
+        WinScreen.JigglyPuffWin();
+        Time.timeScale = 0f;
     }
 }
