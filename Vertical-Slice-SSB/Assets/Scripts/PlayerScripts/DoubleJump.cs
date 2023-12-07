@@ -101,7 +101,7 @@ public class DoubleJump : MonoBehaviour
             {
                 extraJumps--; // removes 1 jump from the max jumps
                 Debug.Log(extraJumps + " Jumps left.");
-                audioSource.pitch += 0.02f;
+                audioSource.pitch += 0.04f;
                 PlayjumpSound();
                 normalJump(secondJumpPower);
             }
