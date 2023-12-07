@@ -5,7 +5,9 @@ public class HeavyAttack : MonoBehaviour
     [SerializeField] private int Player;
     [SerializeField] private DoDamage doDamage;
     [SerializeField] private float multiplier;
+    public Animator animator;
     private KeyCode HeavyAttackKeyCode;
+
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
 
@@ -27,6 +29,7 @@ public class HeavyAttack : MonoBehaviour
         {
             HeavyAttackKeyCode = KeyCode.P;
         }
+        animator = GetComponentInChildren<Animator>();
 
     }
 
@@ -42,6 +45,7 @@ public class HeavyAttack : MonoBehaviour
     private void Attack()
     {
         //play animation, gameartist
+        animator.Play("HAttack");
         Debug.Log("HEAVY_ATTACK!");
 
     }

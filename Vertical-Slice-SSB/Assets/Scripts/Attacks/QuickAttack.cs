@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class QuickAttack : MonoBehaviour
 {
     [SerializeField] private int Player;
     [SerializeField] private DoDamage doDamage;
     [SerializeField] private float multiplier;
+    public Animator animator;
     private KeyCode QuickAttackKeyCode;
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
@@ -29,7 +28,7 @@ public class QuickAttack : MonoBehaviour
         {
             QuickAttackKeyCode = KeyCode.O;
         }
-
+        animator = GetComponentInChildren<Animator>();
 
     }
     void Update()
@@ -47,6 +46,8 @@ public class QuickAttack : MonoBehaviour
     private void Attack()
     {
         //play animation, gameartist
+        animator.Play("LAttack");
+
         Debug.Log("ATTACK!");
 
     }
