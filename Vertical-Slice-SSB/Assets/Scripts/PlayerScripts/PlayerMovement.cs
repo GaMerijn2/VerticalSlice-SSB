@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Physics.IgnoreLayerCollision(6, 6, true);
         if (dash != null)
         {
             if (dash.isDashing)
