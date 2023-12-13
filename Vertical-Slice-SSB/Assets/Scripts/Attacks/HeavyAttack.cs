@@ -5,9 +5,9 @@ public class HeavyAttack : MonoBehaviour
     [SerializeField] private int Player;
     [SerializeField] private DoDamage doDamage;
     [SerializeField] private float multiplier;
+    [SerializeField] private GameObject attackColliderGO;
     public Animator animator;
     private KeyCode HeavyAttackKeyCode;
-
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
 
@@ -30,15 +30,17 @@ public class HeavyAttack : MonoBehaviour
             HeavyAttackKeyCode = KeyCode.P;
         }
         animator = GetComponentInChildren<Animator>();
-
     }
 
     void Update()
     {
-        if ((Player == 1 || Player == 2) && Input.GetKeyDown(HeavyAttackKeyCode))
+        if (/* (Player == 1 || Player == 2) && */ Input.GetKeyDown(HeavyAttackKeyCode))
         {
+            attackColliderGO.SetActive(true);
             Attack();
             doDamage.IsAttacking(multiplier);
+            attackColliderGO.SetActive(false);
+
         }
     }
 
@@ -49,5 +51,4 @@ public class HeavyAttack : MonoBehaviour
         Debug.Log("HEAVY_ATTACK!");
 
     }
-
 }

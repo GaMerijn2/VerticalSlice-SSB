@@ -5,6 +5,7 @@ public class QuickAttack : MonoBehaviour
     [SerializeField] private int Player;
     [SerializeField] private DoDamage doDamage;
     [SerializeField] private float multiplier;
+    [SerializeField] private GameObject attackColliderGO;
     public Animator animator;
     private KeyCode QuickAttackKeyCode;
 
@@ -35,19 +36,16 @@ public class QuickAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(QuickAttackKeyCode))
         {
+            attackColliderGO.SetActive(true);
             Attack();
             doDamage.IsAttacking(multiplier);
+            attackColliderGO.SetActive(false);
         }
     }
-
-
-
-
     private void Attack()
     {
         //play animation, gameartist
         animator.Play("LAttack");
-
         Debug.Log("ATTACK!");
 
     }
