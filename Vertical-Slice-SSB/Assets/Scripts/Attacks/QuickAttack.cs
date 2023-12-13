@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class QuickAttack : MonoBehaviour
 {
@@ -34,12 +35,11 @@ public class QuickAttack : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(QuickAttackKeyCode))
+        if ((Player == 1 || Player == 2) && Input.GetKeyDown(QuickAttackKeyCode))
         {
-            attackColliderGO.SetActive(true);
+            StartCoroutine(ActivateCollider());
             Attack();
             doDamage.IsAttacking(multiplier);
-            attackColliderGO.SetActive(false);
         }
     }
     private void Attack()
@@ -48,5 +48,12 @@ public class QuickAttack : MonoBehaviour
         animator.Play("LAttack");
         Debug.Log("ATTACK!");
 
+    }
+
+    IEnumerator ActivateCollider()
+    {
+        attackColliderGO.SetActive(true);
+        yield return new WaitForSeconds(0.05f);
+        attackColliderGO.SetActive(false);
     }
 }

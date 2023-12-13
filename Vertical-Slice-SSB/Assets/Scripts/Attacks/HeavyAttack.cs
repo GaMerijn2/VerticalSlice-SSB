@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class HeavyAttack : MonoBehaviour
 {
@@ -34,13 +35,11 @@ public class HeavyAttack : MonoBehaviour
 
     void Update()
     {
-        if (/* (Player == 1 || Player == 2) && */ Input.GetKeyDown(HeavyAttackKeyCode))
+        if ((Player == 1 || Player == 2) && Input.GetKeyDown(HeavyAttackKeyCode))
         {
-            attackColliderGO.SetActive(true);
+            StartCoroutine(ActivateCollider());
             Attack();
             doDamage.IsAttacking(multiplier);
-            attackColliderGO.SetActive(false);
-
         }
     }
 
@@ -49,6 +48,13 @@ public class HeavyAttack : MonoBehaviour
         //play animation, gameartist
         animator.Play("HAttack");
         Debug.Log("HEAVY_ATTACK!");
-
     }
+
+    IEnumerator ActivateCollider()
+    {
+        attackColliderGO.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        attackColliderGO.SetActive(false);
+    }
+
 }
