@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
         horizontalInput = Input.GetAxis(horizontalInputAxis);
         Move();
+
     }
 
     private void Move()
