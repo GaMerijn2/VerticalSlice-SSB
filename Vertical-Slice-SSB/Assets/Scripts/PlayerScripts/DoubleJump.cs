@@ -24,6 +24,10 @@ public class DoubleJump : MonoBehaviour
 
     [SerializeField] private bool isJumpButtonDown = false;
 
+    private AudioManager audioManager;
+    private AudioSource audioSource;
+
+
 
     private int jumpCylce = 0;
     private int normalJumps = 2;
@@ -36,6 +40,8 @@ public class DoubleJump : MonoBehaviour
         characterName = GetComponent<ObjectTags>().characterName;
         canJump = true;
         jumpPower = playerMovement.jumpPower;
+        audioManager = GameObject.Find("JumpAudio").GetComponent<AudioManager>();
+        audioSource = GameObject.Find("JumpAudio").GetComponent<AudioSource>();
     }
     private void FixedUpdate()
     {
@@ -77,12 +83,15 @@ public class DoubleJump : MonoBehaviour
             extraJumps = 5;
             CanDoubleJump = true;
             normalJump(jumpPower);
+            PlayjumpSound();
+            audioSource.pitch = 1f;
         }
         // the second jump from the ground
         else if (CanDoubleJump)
         {
             CanDoubleJump = false;
             normalJump(jumpPower);
+            PlayjumpSound();
         }
         // checks if the character can jump more then 2 times
         else if (CanJumpMore)
@@ -92,6 +101,8 @@ public class DoubleJump : MonoBehaviour
             {
                 extraJumps--; // removes 1 jump from the max jumps
                 Debug.Log(extraJumps + " Jumps left.");
+                audioSource.pitch += 0.04f;
+                PlayjumpSound();
                 normalJump(secondJumpPower);
             }
             CanJumpMore = false;
@@ -119,5 +130,11 @@ public class DoubleJump : MonoBehaviour
                 secondJumpPower = playerMovement.jumpPower / 1.5f; // secondairy jump power for Jigglypuff
             }
         }
+    }
+
+    private void PlayjumpSound()
+    {
+        audioManager.PlayRandomAudio();
+        
     }
 }

@@ -12,6 +12,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private string horizontalInputAxis;
     [SerializeField] private Dash dash;
 
+    [SerializeField] private AnimatePlayer animatePlayer;
+
+    [SerializeField] private RandomAudioClip jumpClips;
+    [SerializeField] private AudioSource audioSource;
+
+    private float xPos;
+    private Vector3 lastPos;
+
     //private float verticalInput;
 
     void Start()
@@ -21,6 +29,13 @@ public class PlayerMovement : MonoBehaviour
     private void FindPlayerTag()
     {
         rb = transform.GetComponent<Rigidbody>();
+        audioSource = gameObject.GetComponent<AudioSource>();
+        animatePlayer = GameObject.Find("kirby blender animatie lopen met riig fbx").GetComponent<AnimatePlayer>();
+
+    }
+    private void Update()
+    {
+        WalkAnimation();
     }
 
     void FixedUpdate()
@@ -36,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
         horizontalInput = Input.GetAxis(horizontalInputAxis);
         Move();
+
     }
 
     private void Move()
@@ -54,5 +70,22 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("Rigidbody is Null!"); // logs a error message to the console
         }
+
+
+    }
+    private void WalkAnimation()
+    {
+        xPos = this.gameObject.transform.position.x;
+        if (xPos == lastPos.x)
+        {
+            animatePlayer.setAnimation("IsWalking", false);
+            animatePlayer.animator.speed = 2f;
+        }
+        else
+        {
+            animatePlayer.setAnimation("IsWalking", true);
+            animatePlayer.animator.speed = 1f;//animatie snel afmaken ivm has exit time
+        }
+        lastPos = this.transform.position;
     }
 }
