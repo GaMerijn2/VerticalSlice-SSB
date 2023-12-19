@@ -3,15 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player1
+  - Player2
+  - DeathWall
+  - GroundCheck
+  - Colliderp2
+  - Colliderp1
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
