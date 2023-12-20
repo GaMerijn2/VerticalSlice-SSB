@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Knockback : MonoBehaviour
 {
@@ -12,7 +10,7 @@ public class Knockback : MonoBehaviour
 
     private void Update()
     {
-        if(opponent.GetComponent<FlipPlayer>().isFacingRight == true)
+        if (opponent.GetComponent<FlipPlayer>().isFacingRight == true)
         {
             direction = 1;
         }
@@ -21,9 +19,9 @@ public class Knockback : MonoBehaviour
             direction = -1;
         }
 
-        collision.GetComponent<PlayerMovement>().rb.AddForce(Vector3.up * direction * (1 + (playerHealth.damage / 100 * 7)), ForceMode.VelocityChange);
+        // collision.GetComponent<PlayerMovement>().rb.AddForce(Vector3.up * direction * (1 + (playerHealth.damage / 100 * 7)), ForceMode.VelocityChange);
 
-        collision.GetComponent<PlayerMovement>().rb.AddForce(Vector3.right * direction * (7 + (playerHealth.damage * 1.2f)), ForceMode.Impulse);
+        // collision.GetComponent<PlayerMovement>().rb.AddForce(Vector3.right * direction * (7 + (playerHealth.damage * 1.2f)), ForceMode.Impulse);
 
     }
 
