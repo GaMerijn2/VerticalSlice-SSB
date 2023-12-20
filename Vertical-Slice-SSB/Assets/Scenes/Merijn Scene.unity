@@ -282,6 +282,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 210d4cfe91ae87a4f87579114ca99fc3, type: 3}
   - {fileID: 8300000, guid: 2d8e7abc08578e7478e8cc1f527ef43f, type: 3}
   - {fileID: 8300000, guid: acb6f057fb2041541993c974d76296d2, type: 3}
+--- !u!1 &65842210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3048753013874063366, guid: a0895f45f4ac0fa4d8ea2a8c9652ab74,
+    type: 3}
+  m_PrefabInstance: {fileID: 1702305401}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &69812534
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +361,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69812534}
   m_CullTransparentMesh: 1
+--- !u!1 &85183505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3048753013874063366, guid: a0895f45f4ac0fa4d8ea2a8c9652ab74,
+    type: 3}
+  m_PrefabInstance: {fileID: 687212600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &104183307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,7 +1381,7 @@ PrefabInstance:
     - target: {fileID: 3048753013874063366, guid: a0895f45f4ac0fa4d8ea2a8c9652ab74,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7462642809803621333, guid: a0895f45f4ac0fa4d8ea2a8c9652ab74,
         type: 3}
@@ -1441,7 +1453,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9170795101089067283, guid: a0895f45f4ac0fa4d8ea2a8c9652ab74, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a0895f45f4ac0fa4d8ea2a8c9652ab74, type: 3}
 --- !u!4 &687212601 stripped
 Transform:
@@ -2332,7 +2345,7 @@ PrefabInstance:
     - target: {fileID: 3048753013874063366, guid: a0895f45f4ac0fa4d8ea2a8c9652ab74,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7462642809803621333, guid: a0895f45f4ac0fa4d8ea2a8c9652ab74,
         type: 3}
@@ -2404,7 +2417,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9170795101089067283, guid: a0895f45f4ac0fa4d8ea2a8c9652ab74, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a0895f45f4ac0fa4d8ea2a8c9652ab74, type: 3}
 --- !u!4 &1702305402 stripped
 Transform:
@@ -4022,6 +4036,7 @@ GameObject:
   - component: {fileID: 2793155839933849485}
   - component: {fileID: 2793155839933849487}
   - component: {fileID: 2793155839933849486}
+  - component: {fileID: 2793155839933849488}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -4128,7 +4143,7 @@ MonoBehaviour:
   Player: 2
   doDamage: {fileID: 2793155839933849480}
   multiplier: 2
-  attackColliderGO: {fileID: 0}
+  attackColliderGO: {fileID: 85183505}
   animator: {fileID: 0}
 --- !u!114 &2793155839933849484
 MonoBehaviour:
@@ -4145,7 +4160,7 @@ MonoBehaviour:
   Player: 2
   doDamage: {fileID: 2793155839933849480}
   multiplier: 1.5
-  attackColliderGO: {fileID: 0}
+  attackColliderGO: {fileID: 85183505}
   animator: {fileID: 0}
 --- !u!135 &2793155839933849485
 SphereCollider:
@@ -4284,12 +4299,30 @@ MonoBehaviour:
   animatePlayer: {fileID: 3027018878589239740}
   canDash: 0
   isDashing: 0
-  dashingPower: 7
-  dashingTime: 0.2
+  dashingPower: 14
+  dashingTime: 0.1
   dashingCooldown: 2
   trailRenderer: {fileID: 2793155839933849486}
   dashInputKey: 105
   DashSound: []
+--- !u!114 &2793155839933849488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793155839933848703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cfce516f6748ff4380e6bdd7acc77c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingLives: 3
+  currentLives: 0
+  WinScreen: {fileID: 2990526331882809552}
+  livesText: {fileID: 104183309}
+  isP1: 0
+  isP2: 1
 --- !u!4 &2793155841197638452
 Transform:
   m_ObjectHideFlags: 0
@@ -6126,6 +6159,7 @@ GameObject:
   - component: {fileID: 5035254571026621269}
   - component: {fileID: 5035254571026621271}
   - component: {fileID: 5035254571026621270}
+  - component: {fileID: 5035254571026621272}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -6242,7 +6276,7 @@ MonoBehaviour:
   Player: 1
   doDamage: {fileID: 5035254571026621264}
   multiplier: 2
-  attackColliderGO: {fileID: 0}
+  attackColliderGO: {fileID: 65842210}
   animator: {fileID: 0}
 --- !u!114 &5035254571026621268
 MonoBehaviour:
@@ -6259,7 +6293,7 @@ MonoBehaviour:
   Player: 1
   doDamage: {fileID: 5035254571026621264}
   multiplier: 1.5
-  attackColliderGO: {fileID: 0}
+  attackColliderGO: {fileID: 65842210}
   animator: {fileID: 166517449}
 --- !u!135 &5035254571026621269
 SphereCollider:
@@ -6404,6 +6438,24 @@ MonoBehaviour:
   trailRenderer: {fileID: 5035254571026621270}
   dashInputKey: 98
   DashSound: []
+--- !u!114 &5035254571026621272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035254571026621252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cfce516f6748ff4380e6bdd7acc77c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingLives: 3
+  currentLives: 0
+  WinScreen: {fileID: 2990526331882809552}
+  livesText: {fileID: 261401390}
+  isP1: 1
+  isP2: 0
 --- !u!1 &5035254571900872194
 GameObject:
   m_ObjectHideFlags: 0
@@ -6569,7 +6621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912192045060159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.61418253, y: -3.2099237, z: 19.383324}
+  m_LocalPosition: {x: 0.61418235, y: -3.2099257, z: 19.38322}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6864,7 +6916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912193496899404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.61418253, y: -3.2099237, z: 19.383324}
+  m_LocalPosition: {x: 0.61418235, y: -3.2099257, z: 19.38322}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
