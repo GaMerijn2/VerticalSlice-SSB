@@ -4347,6 +4347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2990526331882809551}
   - component: {fileID: 2990526331882809552}
+  - component: {fileID: 2990526331882809553}
   m_Layer: 0
   m_Name: gamemanager
   m_TagString: Untagged
@@ -4383,6 +4384,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KirbyWinUI: {fileID: 6524673851738261751}
   jigglypuffWinUI: {fileID: 6941067956261274905}
+--- !u!114 &2990526331882809553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2990526331882809549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a866551442b25da409df5d7d08dcaa53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2998713646960240436
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6542,7 +6555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912192045060159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.61418295, y: -3.2099237, z: 19.383324}
+  m_LocalPosition: {x: 0.6141827, y: -3.2099237, z: 19.383324}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6837,7 +6850,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912193496899404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.61418295, y: -3.2099237, z: 19.383324}
+  m_LocalPosition: {x: 0.6141827, y: -3.2099237, z: 19.383324}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
