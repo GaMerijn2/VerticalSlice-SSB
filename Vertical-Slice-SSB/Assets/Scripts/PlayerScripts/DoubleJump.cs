@@ -34,6 +34,8 @@ public class DoubleJump : MonoBehaviour
     private int extraJumps = 5;
     private float normalForce = 1f;
 
+    [SerializeField] private PlayerContols controls;
+
 
     private void Start()
     {
@@ -42,6 +44,13 @@ public class DoubleJump : MonoBehaviour
         jumpPower = playerMovement.jumpPower;
         audioManager = GameObject.Find("JumpAudio").GetComponent<AudioManager>();
         audioSource = GameObject.Find("JumpAudio").GetComponent<AudioSource>();
+
+
+    }
+    private void Awake()
+    {
+        controls = new PlayerContols();
+        controls.Gameplay.Jump.performed += ctx => normalJump(1);
     }
     private void FixedUpdate()
     {
@@ -75,7 +84,7 @@ public class DoubleJump : MonoBehaviour
     private void Jump()
     {
         // checks the unique effects of the characters
-        CheckCharacter(); 
+        CheckCharacter();
 
         // the first jump, when you're standing on the ground
         if (groundCheckBool)
@@ -135,6 +144,6 @@ public class DoubleJump : MonoBehaviour
     private void PlayjumpSound()
     {
         audioManager.PlayRandomAudio();
-        
+
     }
 }

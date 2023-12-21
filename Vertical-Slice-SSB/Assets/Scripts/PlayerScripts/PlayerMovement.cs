@@ -20,17 +20,29 @@ public class PlayerMovement : MonoBehaviour
     private float xPos;
     private Vector3 lastPos;
 
+    PlayerContols controls;
+    Vector2 move;
+
     //private float verticalInput;
 
     void Start()
     {
         FindPlayerTag();
+
     }
     private void FindPlayerTag()
     {
         rb = transform.GetComponent<Rigidbody>();
         audioSource = gameObject.GetComponent<AudioSource>();
         animatePlayer = GameObject.Find("kirby blender animatie lopen met riig fbx").GetComponent<AnimatePlayer>();
+
+    }
+    private void Awake()
+    {
+        controls = new PlayerContols();
+        controls.Gameplay.HorizontalMove.performed += ctx => move = ctx.ReadValue<Vector2>();
+        controls.Gameplay.HorizontalMove.canceled += ctx => move = Vector2.zero;
+        Input.GetJoystickNames();
 
     }
     private void Update()
@@ -60,7 +72,13 @@ public class PlayerMovement : MonoBehaviour
         {
             //Moves the player Left and Right based on the input
             Vector3 moveInput = new Vector3(horizontalInput, rb.velocity.y, rb.velocity.z);
-            rb.MovePosition(transform.position + moveInput * Time.deltaTime * moveSpeed);
+            // rb.MovePosition(transform.position + moveInput * Time.deltaTime * moveSpeed);
+
+
+            // Controller movement
+            move = new Vector2(move.x, move.y) * Time.deltaTime * moveSpeed;
+            rb.MovePosition(move);
+
 
             Vector3 lasPos = transform.position;
             float speed = (transform.position - lasPos).magnitude / Time.deltaTime;
@@ -70,6 +88,9 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("Rigidbody is Null!"); // logs a error message to the console
         }
+
+
+
 
 
     }
