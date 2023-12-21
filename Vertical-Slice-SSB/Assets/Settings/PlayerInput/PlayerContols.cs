@@ -28,13 +28,13 @@ public partial class @PlayerContols: IInputActionCollection2, IDisposable
             ""id"": ""f11720f5-2a59-4b07-a07d-c2464e7e5707"",
             ""actions"": [
                 {
-                    ""name"": ""HorizontalMove"",
-                    ""type"": ""Button"",
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
                     ""id"": ""af7795a0-e6c1-42f1-9c9f-df9ce8c01696"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Jump"",
@@ -81,9 +81,53 @@ public partial class @PlayerContols: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""HorizontalMove"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Two Modifiers"",
+                    ""id"": ""1260396d-4fc5-4c62-8cb3-cd6181b6abdc"",
+                    ""path"": ""TwoModifiers"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier1"",
+                    ""id"": ""e2f3e3d6-b5ee-48d7-a4dd-e934b1823d92"",
+                    ""path"": ""<Gamepad>/leftStick/"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier2"",
+                    ""id"": ""9f247547-c84f-4db3-baf8-b2f35f3bb115"",
+                    ""path"": ""<Gamepad>/leftStick/"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""deb2a4e8-40d5-4d52-bee4-d343a965891c"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -132,7 +176,7 @@ public partial class @PlayerContols: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f26fc74c-4f5b-4788-ab0d-e4d0d4322b5c"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -147,7 +191,7 @@ public partial class @PlayerContols: IInputActionCollection2, IDisposable
 }");
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_HorizontalMove = m_Gameplay.FindAction("HorizontalMove", throwIfNotFound: true);
+        m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_LightAttack = m_Gameplay.FindAction("LightAttack", throwIfNotFound: true);
         m_Gameplay_HeavyAttack = m_Gameplay.FindAction("HeavyAttack", throwIfNotFound: true);
@@ -213,7 +257,7 @@ public partial class @PlayerContols: IInputActionCollection2, IDisposable
     // Gameplay
     private readonly InputActionMap m_Gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
-    private readonly InputAction m_Gameplay_HorizontalMove;
+    private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_LightAttack;
     private readonly InputAction m_Gameplay_HeavyAttack;
@@ -222,7 +266,7 @@ public partial class @PlayerContols: IInputActionCollection2, IDisposable
     {
         private @PlayerContols m_Wrapper;
         public GameplayActions(@PlayerContols wrapper) { m_Wrapper = wrapper; }
-        public InputAction @HorizontalMove => m_Wrapper.m_Gameplay_HorizontalMove;
+        public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @LightAttack => m_Wrapper.m_Gameplay_LightAttack;
         public InputAction @HeavyAttack => m_Wrapper.m_Gameplay_HeavyAttack;
@@ -236,9 +280,9 @@ public partial class @PlayerContols: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_GameplayActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_GameplayActionsCallbackInterfaces.Add(instance);
-            @HorizontalMove.started += instance.OnHorizontalMove;
-            @HorizontalMove.performed += instance.OnHorizontalMove;
-            @HorizontalMove.canceled += instance.OnHorizontalMove;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
@@ -255,9 +299,9 @@ public partial class @PlayerContols: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IGameplayActions instance)
         {
-            @HorizontalMove.started -= instance.OnHorizontalMove;
-            @HorizontalMove.performed -= instance.OnHorizontalMove;
-            @HorizontalMove.canceled -= instance.OnHorizontalMove;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
@@ -289,7 +333,7 @@ public partial class @PlayerContols: IInputActionCollection2, IDisposable
     public GameplayActions @Gameplay => new GameplayActions(this);
     public interface IGameplayActions
     {
-        void OnHorizontalMove(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLightAttack(InputAction.CallbackContext context);
         void OnHeavyAttack(InputAction.CallbackContext context);

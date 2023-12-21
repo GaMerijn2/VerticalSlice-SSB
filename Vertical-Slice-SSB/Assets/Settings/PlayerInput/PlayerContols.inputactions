@@ -6,13 +6,13 @@
             "id": "f11720f5-2a59-4b07-a07d-c2464e7e5707",
             "actions": [
                 {
-                    "name": "HorizontalMove",
-                    "type": "Button",
+                    "name": "Move",
+                    "type": "Value",
                     "id": "af7795a0-e6c1-42f1-9c9f-df9ce8c01696",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Jump",
@@ -59,9 +59,53 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HorizontalMove",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "Two Modifiers",
+                    "id": "1260396d-4fc5-4c62-8cb3-cd6181b6abdc",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "e2f3e3d6-b5ee-48d7-a4dd-e934b1823d92",
+                    "path": "<Gamepad>/leftStick/",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "9f247547-c84f-4db3-baf8-b2f35f3bb115",
+                    "path": "<Gamepad>/leftStick/",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "deb2a4e8-40d5-4d52-bee4-d343a965891c",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -110,7 +154,7 @@
                 {
                     "name": "",
                     "id": "f26fc74c-4f5b-4788-ab0d-e4d0d4322b5c",
-                    "path": "",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

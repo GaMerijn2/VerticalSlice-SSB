@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Reflection;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     PlayerContols controls;
     Vector2 move;
+    ParameterInfo ctx1;
 
     //private float verticalInput;
 
@@ -40,14 +42,16 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerContols();
-        controls.Gameplay.HorizontalMove.performed += ctx => move = ctx.ReadValue<Vector2>();
-        controls.Gameplay.HorizontalMove.canceled += ctx => move = Vector2.zero;
+        // controls.Gameplay.HorizontalMove.performed += ctx => move = ctx.ReadValue<Vector2>();
+        //controls.Gameplay.HorizontalMove.canceled += ctx1 => move = Vector2.zero;
+
         Input.GetJoystickNames();
 
     }
     private void Update()
     {
         WalkAnimation();
+        Debug.Log(ctx1);
     }
 
     void FixedUpdate()
@@ -72,12 +76,12 @@ public class PlayerMovement : MonoBehaviour
         {
             //Moves the player Left and Right based on the input
             Vector3 moveInput = new Vector3(horizontalInput, rb.velocity.y, rb.velocity.z);
-            // rb.MovePosition(transform.position + moveInput * Time.deltaTime * moveSpeed);
+            rb.MovePosition(transform.position + moveInput * Time.deltaTime * moveSpeed);
 
 
             // Controller movement
             move = new Vector2(move.x, move.y) * Time.deltaTime * moveSpeed;
-            rb.MovePosition(move);
+            // rb.MovePosition(move);
 
 
             Vector3 lasPos = transform.position;
