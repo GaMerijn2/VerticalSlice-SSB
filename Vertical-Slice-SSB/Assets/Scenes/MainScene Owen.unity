@@ -592,6 +592,7 @@ MonoBehaviour:
   isOneWay: 1
   player: {fileID: 0}
   player2: {fileID: 0}
+  platformcol: {fileID: 0}
 --- !u!1 &297955770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,6 +1720,7 @@ MonoBehaviour:
   isOneWay: 1
   player: {fileID: 2793155839933848703}
   player2: {fileID: 0}
+  platformcol: {fileID: 0}
 --- !u!65 &932724473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2625,6 +2627,7 @@ MonoBehaviour:
   isOneWay: 1
   player: {fileID: 0}
   player2: {fileID: 0}
+  platformcol: {fileID: 0}
 --- !u!65 &1625831669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6153,7 +6156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912192045060159}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4836519, y: -3.2100968, z: 19.760283}
+  m_LocalPosition: {x: 1.4836541, y: -3.2100968, z: 19.760283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6488,7 +6491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912193496899404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4836519, y: -3.2100968, z: 19.760283}
+  m_LocalPosition: {x: 1.4836541, y: -3.2100968, z: 19.760283}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

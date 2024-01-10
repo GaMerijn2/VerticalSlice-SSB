@@ -5,7 +5,7 @@ public class OneWayPlat : MonoBehaviour
     public bool isOneWay = true;
     public GameObject player;
     public GameObject player2;
-    private Collider platformcol;
+    public Collider platformcol;
 
     void Start()
     {
@@ -23,7 +23,6 @@ public class OneWayPlat : MonoBehaviour
             if (rb.velocity.y > 0)
             {
                 Physics.IgnoreCollision(platformcol, other, true);
-
             }
         }
     }
