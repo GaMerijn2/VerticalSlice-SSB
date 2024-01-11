@@ -2,28 +2,48 @@
 
 public class DownDrop : MonoBehaviour
 {
-    public OneWayPlat oneWayPlat;
     public bool isColliding;
     public Collider playercol;
+    [SerializeField] private Collider platTouch;
+    [SerializeField] private int wichPlayer;
+    [SerializeField] private KeyCode key;
 
-    // Start is called before the first frame update
     void Start()
     {
+        if (wichPlayer == 2)
+        {
+            key = KeyCode.DownArrow;
+        }
+
+        if (wichPlayer == 1)
+        {
+            key = KeyCode.S;
+        }
+
     }
 
-    private void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision collision)
     {
-
-        isColliding = true;
-        if ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && isColliding)
+        if (collision.gameObject.CompareTag("OneWayPlat"))
         {
-            Physics.IgnoreCollision(oneWayPlat.platformcol, playercol, false);
-            Debug.Log("Test");
+            platTouch = collision.collider;
+            isColliding = true;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (Input.GetKey(key) && isColliding)
+        {
+            Physics.IgnoreCollision(platTouch, playercol, true);
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        isColliding = false;
+        if (collision.gameObject.CompareTag("OneWayPlat"))
+        {
+            isColliding = false;
+        }
     }
 }
