@@ -45,7 +45,7 @@ public class Dash : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
-        DashSound[0].Play();
+        //DashSound[0].Play();
         rb.useGravity = false;
         float originalDrag = rb.drag;
         rb.drag = 0f;
@@ -54,7 +54,7 @@ public class Dash : MonoBehaviour
         rb.velocity = new Vector3(transform.localScale.x * -dashingPower, 0f, -dashingPower);
         trailRenderer.emitting = true;
         yield return new WaitForSeconds(dashingTime);
-        DashSound[1].Play();
+        // DashSound[1].Play();
         trailRenderer.emitting = false;
         isDashing = false;
         rb.useGravity = true;

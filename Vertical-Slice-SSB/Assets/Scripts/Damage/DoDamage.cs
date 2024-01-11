@@ -30,7 +30,7 @@ public class DoDamage : MonoBehaviour
 
 
             playerHealth = collision.GetComponent<PlayerHealth>();
-            bool knockbackDirection = collision.GetComponent<FlipPlayer>().isFacingRight;
+            bool knockbackDirection = gameObject.GetComponent<FlipPlayer>().isFacingRight;
 
             if (knockbackDirection)
             {
