@@ -50,7 +50,7 @@ public class DoubleJump : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerContols();
-        controls.Gameplay.Jump.performed += ctx => normalJump(1);
+        controls.Gameplay.Jump.started += ctx => normalJump(5.6f);
     }
     private void FixedUpdate()
     {
