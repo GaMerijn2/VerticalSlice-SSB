@@ -9,6 +9,7 @@ public class Deathwall : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.collider.name);
         Lives lives = collision.gameObject.GetComponent<Lives>();
         HandlePlayerCollision(collision, lives);
     }
