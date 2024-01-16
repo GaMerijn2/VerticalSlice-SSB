@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TakeDamage : MonoBehaviour
 {
@@ -8,6 +6,7 @@ public class TakeDamage : MonoBehaviour
     [SerializeField] PlayerHealth Health; //Player health
     public void TakeDamageFun(float damageAmount, float multiplier) //Take damage function
     {
-        Health.damage = Health.damage + damageAmount * multiplier; //Adds damage to the player health
+        Health.damage += damageAmount * multiplier; //Adds damage to the player health
+        Debug.Log(Health.damage);
     }
 }
