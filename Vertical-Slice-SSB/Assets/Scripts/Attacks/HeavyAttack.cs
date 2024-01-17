@@ -47,7 +47,7 @@ public class HeavyAttack : MonoBehaviour
     {
         //play animation, gameartist
         animator.Play("HAttack");
-        Debug.Log("HEAVY_ATTACK!");
+        // Debug.Log("HEAVY_ATTACK!");
     }
 
     IEnumerator ActivateCollider()

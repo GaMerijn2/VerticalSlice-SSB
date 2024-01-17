@@ -46,9 +46,10 @@ public class QuickAttack : MonoBehaviour
     {
         //play animation, gameartist
         animator.Play("LAttack");
-        Debug.Log("ATTACK!");
+        // Debug.Log("ATTACK!");
 
     }
+
 
     IEnumerator ActivateCollider()
     {
