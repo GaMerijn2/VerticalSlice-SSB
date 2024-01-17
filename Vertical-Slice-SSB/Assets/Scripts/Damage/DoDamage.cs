@@ -5,18 +5,9 @@ using UnityEngine;
 public class DoDamage : MonoBehaviour
 {
 
-    [SerializeField] private float Multiplier;
+    private float Multiplier;
     private bool IsAttackingvar = false;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     public void IsAttacking(float multiplier)
     {

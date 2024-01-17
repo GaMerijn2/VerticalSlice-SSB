@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class HeavyAttack : MonoBehaviour
 {
     [SerializeField] private int Player;
     [SerializeField] private DoDamage doDamage;
     [SerializeField] private float multiplier;
+    [SerializeField] private GameObject attackColliderGO;
+    public Animator animator;
     private KeyCode HeavyAttackKeyCode;
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
@@ -27,13 +30,14 @@ public class HeavyAttack : MonoBehaviour
         {
             HeavyAttackKeyCode = KeyCode.P;
         }
-
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
         if ((Player == 1 || Player == 2) && Input.GetKeyDown(HeavyAttackKeyCode))
         {
+            StartCoroutine(ActivateCollider());
             Attack();
             doDamage.IsAttacking(multiplier);
         }
@@ -42,8 +46,15 @@ public class HeavyAttack : MonoBehaviour
     private void Attack()
     {
         //play animation, gameartist
+        animator.Play("HAttack");
         Debug.Log("HEAVY_ATTACK!");
+    }
 
+    IEnumerator ActivateCollider()
+    {
+        attackColliderGO.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        attackColliderGO.SetActive(false);
     }
 
 }
