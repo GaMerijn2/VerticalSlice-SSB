@@ -4063,6 +4063,7 @@ GameObject:
   - component: {fileID: 2793155839933849485}
   - component: {fileID: 2793155839933849487}
   - component: {fileID: 2793155839933849488}
+  - component: {fileID: 2793155839933849489}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -4236,6 +4237,26 @@ MonoBehaviour:
   platTouch: {fileID: 0}
   wichPlayer: 1
   key: 0
+--- !u!114 &2793155839933849489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793155839933848703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed07988a8bb5b394b9f11ac2b7b75aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageup: 0
+  isCharging: 0
+  canCharge: 0
+  wichPlayer: 1
+  key: 0
+  multiplier: 3.39
+  ChargeTime: 12.34
+  ChargeSpeed: 0
 --- !u!4 &2793155841197638452
 Transform:
   m_ObjectHideFlags: 0
