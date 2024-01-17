@@ -23,6 +23,7 @@ public class Charge : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.V))
         {
+            Debug.Log("Held Key Down");
             isCharging = true;
             currentChargeTime += Time.deltaTime;
 
@@ -45,6 +46,7 @@ public class Charge : MonoBehaviour
         // Implement your charge attack logic here
         StartCoroutine(ActivateCollider());
         doDamage.IsAttacking(multiplier);
+        Attack();
         float chargeLevel = currentChargeTime / maxChargeTime;
 
         // Adjust attack strength or trigger specific attack animations based on chargeLevel
