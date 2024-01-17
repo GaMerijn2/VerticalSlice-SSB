@@ -38,11 +38,11 @@ public class HeavyAttack : MonoBehaviour
 
     void Update()
     {
-        DoAttack();
+        //DoAttack();
     }
     public void DoAttack()
     {
-        if ((Player == 1 || Player == 2) && Input.GetKeyDown(HeavyAttackKeyCode))
+        if ((Player == 1 || Player == 2 /* && Input.GetKeyDown(HeavyAttackKeyCode)*/))
         {
             StartCoroutine(ActivateCollider());
             Attack();

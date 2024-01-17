@@ -31,6 +31,13 @@ public class PlayerMovement : MonoBehaviour
     {
         FindPlayerTag();
 
+        OnAnimationEnd.OnAniEnd += Twest;
+
+    }
+
+    private void Twest()
+    {
+        Debug.Log("TWESTTTTT!!!");
     }
     private void FindPlayerTag()
     {

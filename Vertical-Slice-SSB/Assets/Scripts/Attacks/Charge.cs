@@ -24,40 +24,32 @@ public class Charge : MonoBehaviour
         animatePlayer = GetComponentInChildren<AnimatePlayer>();
         quickAttack = GetComponent<QuickAttack>();
     }
-
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.V))
+        {
+            if (currentChargeTime > 1.5f)
+            {
+                ResetAnimatorBool();
+                Debug.Log("trigger charge atta");
+                PerformChargeAttack();
+            }
+            else
+            {
+                HeavyAttack heavyAttack = GetComponent<HeavyAttack>();
+                heavyAttack.DoAttack();
+            }
+        }
         if (Input.GetKey(KeyCode.V))
         {
             currentChargeTime += Time.deltaTime;
-
-            if (currentChargeTime > 1.5f)
-            {
-                canAttack = false;
-            }
-
             if (currentChargeTime >= chargeTimeThreshold && !isCharging)
             {
-                isCharging = true;
+
                 animatePlayer.playAnimation("ChargeUpAttack");
             }
         }
-        else if (isCharging && !Input.GetKey(KeyCode.V))
-        {
-            PerformChargeAttack();
-        }
-        else if (currentChargeTime < 1.5f)
-        {
-            HeavyAttack heavyAttack = GetComponent<HeavyAttack>();
-            heavyAttack.DoAttack();
-        }
-        else
-        {
-            canAttack = true;
-            ResetAnimatorBool(); // Reset the animator bool here
-        }
     }
-
     void PerformChargeAttack()
     {
         StartCoroutine(ActivateCollider());
@@ -66,31 +58,27 @@ public class Charge : MonoBehaviour
         ResetAttackVariables();
         StartCoroutine(TransitionToNextAnimation());
     }
-
-
     IEnumerator TransitionToNextAnimation()
     {
         yield return new WaitForSeconds(0.5f); // Adjust the delay as needed
         animatePlayer.animator.SetBool("ResumeChargeAttack", false);
         ResetAttackVariables();
     }
-
     void ResetAttackVariables()
     {
         currentChargeTime = 0.0f;
         isCharging = false;
     }
-
     IEnumerator ActivateCollider()
     {
         attackColliderGO.SetActive(true);
         yield return new WaitForSeconds(0.05f);
         attackColliderGO.SetActive(false);
     }
-
     void ResetAnimatorBool()
     {
         // Reset the animator bool here
-        animatePlayer.animator.SetBool("ResumeChargeAttack", false);
+        Debug.Log("ds");
+        animatePlayer.animator.SetBool("ResumeChargeAttack", true);
     }
 }
