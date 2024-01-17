@@ -19,8 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        damage = 0; //The amount of damage the player has taken
-
+        damage = 0;
     }
 
 

@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class QuickAttack : MonoBehaviour
 {
     [SerializeField] private int Player;
     [SerializeField] private DoDamage doDamage;
     [SerializeField] private float multiplier;
+    [SerializeField] private GameObject attackColliderGO;
     public Animator animator;
     private KeyCode QuickAttackKeyCode;
 
@@ -33,22 +35,25 @@ public class QuickAttack : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(QuickAttackKeyCode))
+        if ((Player == 1 || Player == 2) && Input.GetKeyDown(QuickAttackKeyCode))
         {
+            StartCoroutine(ActivateCollider());
             Attack();
             doDamage.IsAttacking(multiplier);
         }
     }
-
-
-
-
     private void Attack()
     {
         //play animation, gameartist
         animator.Play("LAttack");
-
         Debug.Log("ATTACK!");
 
+    }
+
+    IEnumerator ActivateCollider()
+    {
+        attackColliderGO.SetActive(true);
+        yield return new WaitForSeconds(0.05f);
+        attackColliderGO.SetActive(false);
     }
 }

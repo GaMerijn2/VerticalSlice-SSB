@@ -8,6 +8,9 @@ TagManager:
   - Player2
   - DeathWall
   - GroundCheck
+  - OneWayPlat
+  - Colliderp2
+  - Colliderp1
   layers:
   - Default
   - TransparentFX

@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FlipPlayer : MonoBehaviour
 {
-    [SerializeField] private bool isFacingRight;
+    [SerializeField] public bool isFacingRight;
     [SerializeField] private string flipAxis;
     void Start()
     {
