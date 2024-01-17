@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         WalkAnimation();
-        Debug.Log(ctx1);
+        //Debug.Log(ctx1);
     }
 
     void FixedUpdate()

@@ -9,6 +9,7 @@ public class QuickAttack : MonoBehaviour
     [SerializeField] private GameObject attackColliderGO;
     public Animator animator;
     private KeyCode QuickAttackKeyCode;
+    private Charge charge;
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
 
@@ -31,11 +32,16 @@ public class QuickAttack : MonoBehaviour
             QuickAttackKeyCode = KeyCode.O;
         }
         animator = GetComponentInChildren<Animator>();
+        charge = GetComponent<Charge>();
 
     }
     void Update()
     {
-        if ((Player == 1 || Player == 2) && Input.GetKeyDown(QuickAttackKeyCode))
+        DoAttack();
+    }
+    public void DoAttack()
+    {
+        if ((Player == 1 || Player == 2) && Input.GetKeyDown(QuickAttackKeyCode) && charge.canAttack)
         {
             StartCoroutine(ActivateCollider());
             Attack();

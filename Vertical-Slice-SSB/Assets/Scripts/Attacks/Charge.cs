@@ -5,6 +5,7 @@ public class Charge : MonoBehaviour
 {
     public float chargeSpeed = 2.0f;
     public float maxChargeTime = 3.0f;
+    public float chargeTimeThreshold = 1.5f;
 
     private float currentChargeTime = 0.0f;
     private bool isCharging = false;
@@ -13,52 +14,71 @@ public class Charge : MonoBehaviour
     [SerializeField] private float multiplier;
     [SerializeField] private GameObject attackColliderGO;
     private AnimatePlayer animatePlayer;
+    public bool canAttack = true;
+
+    QuickAttack quickAttack;
 
     private void Start()
     {
         doDamage = GetComponent<DoDamage>();
         animatePlayer = GetComponentInChildren<AnimatePlayer>();
+        quickAttack = GetComponent<QuickAttack>();
     }
+
     void Update()
     {
         if (Input.GetKey(KeyCode.V))
         {
-            Debug.Log("Held Key Down");
-            isCharging = true;
             currentChargeTime += Time.deltaTime;
 
-            // Limit the charge time
-            currentChargeTime = Mathf.Clamp(currentChargeTime, 0.0f, maxChargeTime);
-        }
-        else if (isCharging)
-        {
-            // Perform the attack based on the charge level
-            PerformChargeAttack();
+            if (currentChargeTime > 1.5f)
+            {
+                canAttack = false;
+            }
 
-            // Reset charge variables
-            currentChargeTime = 0.0f;
-            isCharging = false;
+            if (currentChargeTime >= chargeTimeThreshold && !isCharging)
+            {
+                isCharging = true;
+                animatePlayer.playAnimation("ChargeUpAttack");
+            }
+        }
+        else if (isCharging && !Input.GetKey(KeyCode.V))
+        {
+            PerformChargeAttack();
+        }
+        else if (currentChargeTime < 1.5f)
+        {
+            HeavyAttack heavyAttack = GetComponent<HeavyAttack>();
+            heavyAttack.DoAttack();
+        }
+        else
+        {
+            canAttack = true;
+            ResetAnimatorBool(); // Reset the animator bool here
         }
     }
 
     void PerformChargeAttack()
     {
-        // Implement your charge attack logic here
         StartCoroutine(ActivateCollider());
-        doDamage.IsAttacking(multiplier);
-        Attack();
-        float chargeLevel = currentChargeTime / maxChargeTime;
-
-        // Adjust attack strength or trigger specific attack animations based on chargeLevel
-        // Example: characterAnimator.SetTrigger("ChargeAttack");
-
-        // Reset any other necessary variables
+        doDamage.IsAttacking(currentChargeTime);
+        animatePlayer.animator.SetBool("ResumeChargeAttack", true);
+        ResetAttackVariables();
+        StartCoroutine(TransitionToNextAnimation());
     }
-    private void Attack()
+
+
+    IEnumerator TransitionToNextAnimation()
     {
-        //play animation, gameartist
-        animatePlayer.playAnimation("ChargeAttack");
-        Debug.Log("CHARGE_ATTACK!");
+        yield return new WaitForSeconds(0.5f); // Adjust the delay as needed
+        animatePlayer.animator.SetBool("ResumeChargeAttack", false);
+        ResetAttackVariables();
+    }
+
+    void ResetAttackVariables()
+    {
+        currentChargeTime = 0.0f;
+        isCharging = false;
     }
 
     IEnumerator ActivateCollider()
@@ -67,5 +87,10 @@ public class Charge : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         attackColliderGO.SetActive(false);
     }
-}
 
+    void ResetAnimatorBool()
+    {
+        // Reset the animator bool here
+        animatePlayer.animator.SetBool("ResumeChargeAttack", false);
+    }
+}
