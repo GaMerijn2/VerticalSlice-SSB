@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DelTestScene.unity
     guid: d186faf2814209a4e93a40dfb11c57ee
   - enabled: 1
-    path: Assets/Scenes/Merijn Scene.unity
+    path: Assets/Scenes/OwenMainScene.unity
     guid: 52cbafdac02a9ad4fb2f6616d292bb49
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 68190de53eea29543b24523a6cd22497,

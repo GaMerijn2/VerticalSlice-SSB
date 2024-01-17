@@ -9,6 +9,8 @@ public class QuickAttack : MonoBehaviour
     [SerializeField] private GameObject attackColliderGO;
     public Animator animator;
     private KeyCode QuickAttackKeyCode;
+    public AudioSource attackAudioSource;
+
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
 
@@ -46,6 +48,7 @@ public class QuickAttack : MonoBehaviour
     {
         //play animation, gameartist
         animator.Play("LAttack");
+        attackAudioSource.Play();
         Debug.Log("ATTACK!");
 
     }
