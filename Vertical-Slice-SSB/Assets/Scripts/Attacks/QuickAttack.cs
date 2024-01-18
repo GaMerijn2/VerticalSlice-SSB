@@ -41,7 +41,7 @@ public class QuickAttack : MonoBehaviour
     }
     public void DoAttack()
     {
-        if ((Player == 1 || Player == 2) && Input.GetKeyDown(QuickAttackKeyCode) && charge.canAttack)
+        if ((Player == 1 || Player == 2) && Input.GetKeyDown(QuickAttackKeyCode))
         {
             StartCoroutine(ActivateCollider());
             Attack();
