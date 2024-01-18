@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 53796655}
   m_Layer: 3
   m_Name: MiniPlatform_left (1)
-  m_TagString: Untagged
+  m_TagString: OneWayPlat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4618,6 +4618,7 @@ GameObject:
   - component: {fileID: 2793155839933849486}
   - component: {fileID: 2793155839933849488}
   - component: {fileID: 2793155839933849489}
+  - component: {fileID: 2793155839933849490}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -4925,6 +4926,23 @@ MonoBehaviour:
   TransColor: {r: 1, g: 0.4627451, b: 0, a: 1}
   EndColor: {r: 0.29411766, g: 0, b: 0, a: 1}
   playerHealth: {fileID: 2793155839933849481}
+--- !u!114 &2793155839933849490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793155839933848703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051f363185315cb4e9de3dea0b51ca2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isColliding: 0
+  playercol: {fileID: 2793155839933849485}
+  platTouch: {fileID: 0}
+  wichPlayer: 2
+  key: 274
 --- !u!4 &2793155841197638452
 Transform:
   m_ObjectHideFlags: 0
@@ -6766,6 +6784,7 @@ GameObject:
   - component: {fileID: 5035254571026621273}
   - component: {fileID: 5035254571026621274}
   - component: {fileID: 5035254571026621275}
+  - component: {fileID: 5035254571026621276}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -7114,6 +7133,23 @@ MonoBehaviour:
   multiplier: 2.2
   attackColliderGO: {fileID: 65842210}
   canAttack: 0
+--- !u!114 &5035254571026621276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035254571026621252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051f363185315cb4e9de3dea0b51ca2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isColliding: 0
+  playercol: {fileID: 5035254571026621269}
+  platTouch: {fileID: 0}
+  wichPlayer: 1
+  key: 115
 --- !u!1 &5035254571900872194
 GameObject:
   m_ObjectHideFlags: 0
@@ -9809,7 +9845,7 @@ GameObject:
   - component: {fileID: 7696418382878426548}
   m_Layer: 3
   m_Name: MiniPlatform_left
-  m_TagString: Untagged
+  m_TagString: OneWayPlat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10089,7 +10125,7 @@ GameObject:
   - component: {fileID: 7696418381545395814}
   m_Layer: 3
   m_Name: MiniPlatform_middle
-  m_TagString: Untagged
+  m_TagString: OneWayPlat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
