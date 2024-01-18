@@ -11,4 +11,8 @@ public class AnimatePlayer : MonoBehaviour
     {
         animator.SetBool(name, animationBool);
     }
+    public void playAnimation(string name)
+    {
+        animator.Play(name);
+    }
 }
