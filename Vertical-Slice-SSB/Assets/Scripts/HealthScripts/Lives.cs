@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Lives : MonoBehaviour
@@ -9,18 +10,22 @@ public class Lives : MonoBehaviour
     public bool isP1;
     public bool isP2;
     public Image[] liveimgs;
-    public PlayerHealth HealthReset;
+    public static UnityEvent Died = new UnityEvent();
 
     private void Awake()
     {
         currentLives = startingLives;
 
     }
-
-    public void DecreaseLives()
+    void MinusLives()
     {
         currentLives--;
-        HealthReset.damage = 0f;
+    }
+    public void DecreaseLives()
+    {
+        Died?.Invoke();
+        Died.AddListener(MinusLives);
+
 
         if (currentLives >= 0 && currentLives < liveimgs.Length)
         {
@@ -43,6 +48,7 @@ public class Lives : MonoBehaviour
 
         }
     }
+
     public void KirbyWin()
     {
         WinScreen.Kirbywin();

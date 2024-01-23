@@ -25,7 +25,10 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
+        Lives.Died.AddListener(HealthRest);
         wholeDamage = (int)damage;
         DamageDisplay.text = wholeDamage.ToString() + "%";
     }
+    void HealthRest()
+    { damage = 0; }
 }
