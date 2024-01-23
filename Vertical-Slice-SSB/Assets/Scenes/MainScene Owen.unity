@@ -478,9 +478,10 @@ GameObject:
   - component: {fileID: 275098403}
   - component: {fileID: 275098407}
   - component: {fileID: 275098406}
+  - component: {fileID: 275098408}
   m_Layer: 3
   m_Name: MiniPlatform_middle
-  m_TagString: Untagged
+  m_TagString: OneWayPlat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,6 +593,24 @@ MonoBehaviour:
   isOneWay: 1
   player: {fileID: 0}
   player2: {fileID: 0}
+  platformcol: {fileID: 0}
+--- !u!114 &275098408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275098401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051f363185315cb4e9de3dea0b51ca2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isColliding: 0
+  playercol: {fileID: 0}
+  platTouch: {fileID: 0}
+  wichPlayer: 0
+  key: 0
 --- !u!1 &297955770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,9 +1638,10 @@ GameObject:
   - component: {fileID: 932724469}
   - component: {fileID: 932724472}
   - component: {fileID: 932724473}
+  - component: {fileID: 932724474}
   m_Layer: 3
   m_Name: MiniPlatform_right
-  m_TagString: Untagged
+  m_TagString: OneWayPlat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1717,8 +1737,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOneWay: 1
-  player: {fileID: 2793155839933848703}
+  player: {fileID: 0}
   player2: {fileID: 0}
+  platformcol: {fileID: 0}
 --- !u!65 &932724473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1732,6 +1753,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020680143, y: 0.020120623, z: 0.08021314}
   m_Center: {x: -0.00005711471, y: -0.0000014910477, z: -0.12}
+--- !u!114 &932724474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932724467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051f363185315cb4e9de3dea0b51ca2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isColliding: 0
+  playercol: {fileID: 0}
+  platTouch: {fileID: 0}
+  wichPlayer: 0
+  key: 0
 --- !u!1 &960433779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2295,6 +2333,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 1075e201e7b5aae4ea67955d6840499f,
+        type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlat
+      objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 1075e201e7b5aae4ea67955d6840499f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2334,6 +2377,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1075e201e7b5aae4ea67955d6840499f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8821623529969584324, guid: 1075e201e7b5aae4ea67955d6840499f,
         type: 3}
@@ -2625,6 +2673,7 @@ MonoBehaviour:
   isOneWay: 1
   player: {fileID: 0}
   player2: {fileID: 0}
+  platformcol: {fileID: 0}
 --- !u!65 &1625831669
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2638,6 +2687,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020680143, y: 0.020120623, z: 0.08021314}
   m_Center: {x: -0.000057115147, y: -0.0000014817344, z: -0.1}
+--- !u!114 &1625831673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625831662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051f363185315cb4e9de3dea0b51ca2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isColliding: 0
+  playercol: {fileID: 0}
+  platTouch: {fileID: 0}
+  wichPlayer: 0
+  key: 0
 --- !u!1001 &1702305401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3995,8 +4061,9 @@ GameObject:
   - component: {fileID: 2793155839933849481}
   - component: {fileID: 2793155839933849480}
   - component: {fileID: 2793155839933849485}
-  - component: {fileID: 2793155839933849486}
   - component: {fileID: 2793155839933849487}
+  - component: {fileID: 2793155839933849488}
+  - component: {fileID: 2793155839933849489}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -4131,18 +4198,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.8589269
   m_Center: {x: 0, y: -0.15892692, z: 0}
---- !u!114 &2793155839933849486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2793155839933848703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02806705c8d8d0748ad2c3b00f54a4fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2793155839933849487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4165,6 +4220,43 @@ MonoBehaviour:
   - {fileID: 1083666133}
   - {fileID: 1806282565}
   HealthReset: {fileID: 2793155839933849481}
+--- !u!114 &2793155839933849488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793155839933848703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051f363185315cb4e9de3dea0b51ca2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isColliding: 0
+  playercol: {fileID: 2793155839933849485}
+  platTouch: {fileID: 0}
+  wichPlayer: 1
+  key: 0
+--- !u!114 &2793155839933849489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793155839933848703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed07988a8bb5b394b9f11ac2b7b75aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageup: 0
+  isCharging: 0
+  canCharge: 0
+  wichPlayer: 1
+  key: 0
+  multiplier: 3.39
+  ChargeTime: 12.34
+  ChargeSpeed: 0
 --- !u!4 &2793155841197638452
 Transform:
   m_ObjectHideFlags: 0
@@ -5858,6 +5950,7 @@ GameObject:
   - component: {fileID: 5035254571026621264}
   - component: {fileID: 5035254571026621269}
   - component: {fileID: 5035254571026621270}
+  - component: {fileID: 5035254571026621271}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -6021,6 +6114,23 @@ MonoBehaviour:
   - {fileID: 297955772}
   - {fileID: 1030757069}
   HealthReset: {fileID: 5035254571026621265}
+--- !u!114 &5035254571026621271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035254571026621252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051f363185315cb4e9de3dea0b51ca2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isColliding: 0
+  playercol: {fileID: 5035254571026621269}
+  platTouch: {fileID: 0}
+  wichPlayer: 2
+  key: 0
 --- !u!1 &5035254571900872194
 GameObject:
   m_ObjectHideFlags: 0

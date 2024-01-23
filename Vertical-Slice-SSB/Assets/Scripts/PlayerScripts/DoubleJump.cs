@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Drawing;
 using UnityEngine;
-using UnityEngine.XR;
 
 public class DoubleJump : MonoBehaviour
 {
-    [SerializeField] private float jumpAmount = 1f;
-    [SerializeField] private float jumpPower = 1f;
+    [SerializeField] private float jumpAmountLeft = 5f;
+    [SerializeField] private float jumpPower = 3.9f;
+    [SerializeField] private float secondJumpPower; // asigned in the CheckCharacter()
     [SerializeField] private PlayerMovement playerMovement;
 
     //GroundCheck Objects
@@ -27,15 +24,24 @@ public class DoubleJump : MonoBehaviour
 
     [SerializeField] private bool isJumpButtonDown = false;
 
+
+    private int jumpCylce = 0;
+    private int normalJumps = 2;
+    private int extraJumps = 5;
+    private float normalForce = 1f;
+
+
     private void Start()
     {
         characterName = GetComponent<ObjectTags>().characterName;
+        canJump = true;
+        jumpPower = playerMovement.jumpPower;
     }
     private void FixedUpdate()
     {
         GroundCheck();
         JumpInputCheck();
-        jumpInput = Input.GetAxis(jumpAxis);
+        jumpInput = Input.GetAxis(jumpAxis); // gets the input for each character
     }
 
     private bool GroundCheck()
@@ -48,40 +54,70 @@ public class DoubleJump : MonoBehaviour
     {
         if (jumpInput > 0f && !isJumpButtonDown)
         {
-            // Button pressed, perform action
             this.isJumpButtonDown = true;
             Jump();
-            DoubleJumpCheck();
+            // Button pressed, perform action
         }
 
         if (jumpInput == 0f)
         {
             // Button released, reset the flag
             this.isJumpButtonDown = false;
-            //test
         }
     }
 
     private void Jump()
     {
-        if (characterName == "Kirby")
-        {
-            CanJumpMore = true;
-        }
+        // checks the unique effects of the characters
+        CheckCharacter(); 
 
+        // the first jump, when you're standing on the ground
         if (groundCheckBool)
         {
+            extraJumps = 5;
             CanDoubleJump = true;
-            playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower, playerMovement.rb.velocity.z);
-            // test again
+            normalJump(jumpPower);
         }
-    }
-    private void DoubleJumpCheck()
-    {
-        if (CanDoubleJump)
+        // the second jump from the ground
+        else if (CanDoubleJump)
         {
             CanDoubleJump = false;
-            playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * playerMovement.jumpPower, playerMovement.rb.velocity.z);
+            normalJump(jumpPower);
+        }
+        // checks if the character can jump more then 2 times
+        else if (CanJumpMore)
+        {
+            //checks how many jumps it can do before stopping
+            if (extraJumps > 0)
+            {
+                extraJumps--; // removes 1 jump from the max jumps
+                Debug.Log(extraJumps + " Jumps left.");
+                normalJump(secondJumpPower);
+            }
+            CanJumpMore = false;
+        }
+    }
+
+    private void normalJump(float jumpPower)
+    {
+        // default jump with assignable jumpPower
+        playerMovement.rb.velocity = new Vector3(playerMovement.rb.velocity.x, 1 * jumpPower, playerMovement.rb.velocity.z);
+    }
+
+    private void CheckCharacter()
+    {
+        // checks the characters names
+        if (characterName == "Kirby" || characterName == "Jigglypuff")
+        {
+            CanJumpMore = true; // if the characers names are like above, set it so they can jump more then twice
+            if (characterName == "Kirby")
+            {
+                secondJumpPower = playerMovement.jumpPower / 1.5f; // secondairy jump power for Kirby
+            }
+            if (characterName == "Jigglypuff")
+            {
+                secondJumpPower = playerMovement.jumpPower / 1.5f; // secondairy jump power for Jigglypuff
+            }
         }
     }
 }
