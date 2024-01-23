@@ -11,12 +11,8 @@ public class Knockback : MonoBehaviour
     private float xPos;
     private Vector3 lastPos;
 
-    Transform SmokeParticle;
 
-    private void Start()
-    {
-        OnAnimationEnd.OnHit += ParticleEffect;
-    }
+
     private void Update()
     {
         if (opponent.GetComponent<FlipPlayer>().isFacingRight == true)
@@ -34,6 +30,10 @@ public class Knockback : MonoBehaviour
 
         // collision.GetComponent<PlayerMovement>().rb.AddForce(Vector3.right * direction * (7 + (playerHealth.damage * 1.2f)), ForceMode.Impulse);
 
+    }
+    private void Start()
+    {
+        OnAnimationEnd.OnHit += ParticleEffect;
     }
 
     private void ParticleEffect()
