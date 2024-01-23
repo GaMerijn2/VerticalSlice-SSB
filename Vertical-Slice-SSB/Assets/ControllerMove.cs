@@ -10,7 +10,7 @@ public class ControllerMove : MonoBehaviour
     {
         controls = new PlayerContols();
         controls.Gameplay.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
-        controls.Gameplay.Move.canceled += ctx1 => move = Vector2.zero;
+        controls.Gameplay.Move.canceled += ctx => move = Vector2.zero;
     }
 
     private void Update()

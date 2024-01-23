@@ -27,6 +27,9 @@ public class DoubleJump : MonoBehaviour
     private AudioManager audioManager;
     private AudioSource audioSource;
 
+    AnimatePlayer animatePlayer;
+
+
 
 
     private int jumpCylce = 0;
@@ -44,13 +47,14 @@ public class DoubleJump : MonoBehaviour
         jumpPower = playerMovement.jumpPower;
         audioManager = GameObject.Find("JumpAudio").GetComponent<AudioManager>();
         audioSource = GameObject.Find("JumpAudio").GetComponent<AudioSource>();
+        animatePlayer = GetComponentInChildren<AnimatePlayer>();
 
 
     }
     private void Awake()
     {
         controls = new PlayerContols();
-        controls.Gameplay.Jump.performed += ctx => normalJump(1);
+        controls.Gameplay.Jump.started += ctx => normalJump(5.6f);
     }
     private void FixedUpdate()
     {
@@ -91,6 +95,7 @@ public class DoubleJump : MonoBehaviour
         {
             extraJumps = 5;
             CanDoubleJump = true;
+            animatePlayer.playAnimation("Jump");
             normalJump(jumpPower);
             PlayjumpSound();
             audioSource.pitch = 1f;
@@ -112,6 +117,7 @@ public class DoubleJump : MonoBehaviour
                 Debug.Log(extraJumps + " Jumps left.");
                 audioSource.pitch += 0.04f;
                 PlayjumpSound();
+                animatePlayer.playAnimation("SecondJump");
                 normalJump(secondJumpPower);
             }
             CanJumpMore = false;

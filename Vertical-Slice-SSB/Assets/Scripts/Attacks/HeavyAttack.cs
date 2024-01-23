@@ -9,6 +9,7 @@ public class HeavyAttack : MonoBehaviour
     [SerializeField] private GameObject attackColliderGO;
     public Animator animator;
     private KeyCode HeavyAttackKeyCode;
+    private Charge charge;
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
 
@@ -31,15 +32,22 @@ public class HeavyAttack : MonoBehaviour
             HeavyAttackKeyCode = KeyCode.P;
         }
         animator = GetComponentInChildren<Animator>();
+        charge = GetComponent<Charge>();
+
     }
 
     void Update()
     {
-        if ((Player == 1 || Player == 2) && Input.GetKeyDown(HeavyAttackKeyCode))
+        //DoAttack();
+    }
+    public void DoAttack()
+    {
+        if ((Player == 1 || Player == 2 /* && Input.GetKeyDown(HeavyAttackKeyCode)*/))
         {
             StartCoroutine(ActivateCollider());
             Attack();
             doDamage.IsAttacking(multiplier);
+
         }
     }
 
@@ -47,7 +55,7 @@ public class HeavyAttack : MonoBehaviour
     {
         //play animation, gameartist
         animator.Play("HAttack");
-        Debug.Log("HEAVY_ATTACK!");
+        // Debug.Log("HEAVY_ATTACK!");
     }
 
     IEnumerator ActivateCollider()
