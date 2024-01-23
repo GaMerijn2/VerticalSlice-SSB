@@ -7,6 +7,7 @@ public class OneWayPlat : MonoBehaviour
     public GameObject player2;
     public Collider platformcol;
 
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player1");

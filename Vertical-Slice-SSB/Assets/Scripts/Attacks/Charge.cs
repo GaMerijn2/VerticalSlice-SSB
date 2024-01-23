@@ -1,56 +1,84 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Charge : MonoBehaviour
 {
-    [SerializeField] private float damageup;
-    public bool isCharging;
-    public bool canCharge;
-    [SerializeField] private int wichPlayer;
-    [SerializeField] private KeyCode key;
+    public float chargeSpeed = 2.0f;
+    public float maxChargeTime = 3.0f;
+    public float chargeTimeThreshold = 1.5f;
+
+    private float currentChargeTime = 0.0f;
+    private bool isCharging = false;
+
+    [SerializeField] private DoDamage doDamage;
     [SerializeField] private float multiplier;
-    [SerializeField] private float ChargeTime;
-    [SerializeField] private float ChargeSpeed;
-    private TakeDamage damage; // Declare the variable at the class level
+    [SerializeField] private GameObject attackColliderGO;
+    private AnimatePlayer animatePlayer;
+    public bool canAttack = true;
 
-    // Start is called before the first frame update
-    void Start()
+    QuickAttack quickAttack;
+
+    private void Start()
     {
-        if (wichPlayer == 2)
-        {
-            key = KeyCode.P;
-        }
-
-        if (wichPlayer == 1)
-        {
-            key = KeyCode.V;
-        }
-
-        damage = GetComponent<TakeDamage>();
+        doDamage = GetComponent<DoDamage>();
+        animatePlayer = GetComponentInChildren<AnimatePlayer>();
+        quickAttack = GetComponent<QuickAttack>();
     }
     void Update()
     {
-        if (Input.GetKey(key) && ChargeTime < 2)
+        if (Input.GetKeyUp(KeyCode.V))
         {
-            isCharging = true;
-            canCharge = false;
-            ChargeTime += Time.deltaTime * ChargeSpeed;
-            multiplier += 0.2f * Time.deltaTime;
+            if (currentChargeTime > 1.5f)
+            {
+                ResetAnimatorBool();
+                Debug.Log("trigger charge atta");
+                PerformChargeAttack();
+            }
+            else
+            {
+                HeavyAttack heavyAttack = GetComponent<HeavyAttack>();
+                heavyAttack.DoAttack();
+            }
         }
-        if (Input.GetKeyUp(key) && ChargeTime > 2)
+        if (Input.GetKey(KeyCode.V))
         {
-            ChargeTime = 0;
-            ReleaseCharge();
-            multiplier = 1;
+            currentChargeTime += Time.deltaTime;
+            if (currentChargeTime >= chargeTimeThreshold && !isCharging)
+            {
+
+                animatePlayer.playAnimation("ChargeUpAttack");
+            }
         }
     }
-
-    private void ReleaseCharge()
+    void PerformChargeAttack()
     {
+        StartCoroutine(ActivateCollider());
+        doDamage.IsAttacking(currentChargeTime);
+        animatePlayer.animator.SetBool("ResumeChargeAttack", true);
+        ResetAttackVariables();
+        StartCoroutine(TransitionToNextAnimation());
+    }
+    IEnumerator TransitionToNextAnimation()
+    {
+        yield return new WaitForSeconds(0.5f); // Adjust the delay as needed
+        animatePlayer.animator.SetBool("ResumeChargeAttack", false);
+        ResetAttackVariables();
+    }
+    void ResetAttackVariables()
+    {
+        currentChargeTime = 0.0f;
         isCharging = false;
-        ChargeTime = 0;
-        if (damage != null)
-        {
-            damage.TakeDamageFun(damageup, multiplier);
-        }
+    }
+    IEnumerator ActivateCollider()
+    {
+        attackColliderGO.SetActive(true);
+        yield return new WaitForSeconds(0.05f);
+        attackColliderGO.SetActive(false);
+    }
+    void ResetAnimatorBool()
+    {
+        // Reset the animator bool here
+        Debug.Log("ds");
+        animatePlayer.animator.SetBool("ResumeChargeAttack", true);
     }
 }
