@@ -16,8 +16,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AnimatePlayer animatePlayer;
 
     [SerializeField] private RandomAudioClip jumpClips;
-    [SerializeField] private AudioSource audioSource;
-
+    [SerializeField] private RandomAudioClip footSteps;
+    private AudioManager audioManager;
+    private AudioSource audioSource;
+    public float timer;
     private float xPos;
     private Vector3 lastPos;
 
@@ -32,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
         FindPlayerTag();
 
         OnAnimationEnd.OnAniEnd += Twest;
+        audioManager = GameObject.Find("WalkingAudio").GetComponent<AudioManager>();
+        audioSource = GameObject.Find("WalkingAudio").GetComponent<AudioSource>();
 
     }
 
@@ -42,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
     private void FindPlayerTag()
     {
         rb = transform.GetComponent<Rigidbody>();
-        audioSource = gameObject.GetComponent<AudioSource>();
         animatePlayer = GameObject.Find("kirby blender animatie lopen met riig fbx").GetComponent<AnimatePlayer>();
 
     }
@@ -84,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
             //Moves the player Left and Right based on the input
             Vector3 moveInput = new Vector3(horizontalInput, rb.velocity.y, rb.velocity.z);
             rb.MovePosition(transform.position + moveInput * Time.deltaTime * moveSpeed);
+            //PlayWalkingSound();
 
 
             // Controller movement
@@ -116,8 +120,17 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animatePlayer.setAnimation("IsWalking", true);
+            Invoke(nameof(PlayWalkingSound), 2f);
             animatePlayer.animator.speed = 1f;//animatie snel afmaken ivm has exit time
         }
         lastPos = this.transform.position;
+    }
+    private void PlayWalkingSound()
+    {
+
+        Debug.Log("walkaudio");
+        audioManager.PlayRandomAudio();
+
+
     }
 }
