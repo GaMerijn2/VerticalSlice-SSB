@@ -7745,7 +7745,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 59.999996
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -7770,8 +7770,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912192045060159}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18082702, y: -2.9458106, z: 19.296364}
+  m_LocalRotation: {x: 0.05564723, y: -0, z: -0, w: 0.9984506}
+  m_LocalPosition: {x: -0.17745681, y: -3.2214785, z: 11.526204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7900,10 +7900,10 @@ MonoBehaviour:
   m_Targets:
   - target: {fileID: 2793155839933848696}
     weight: 1
-    radius: 5
+    radius: 10
   - target: {fileID: 5035254571026621263}
     weight: 1
-    radius: 5
+    radius: 10
 --- !u!4 &5167912192188342108
 Transform:
   m_ObjectHideFlags: 0
@@ -7985,7 +7985,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenY: 0.31
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
@@ -7994,7 +7994,7 @@ MonoBehaviour:
   m_SoftZoneWidth: 0.9
   m_SoftZoneHeight: 0.9
   m_BiasX: 0
-  m_BiasY: 0
+  m_BiasY: 0.19600001
   m_CenterOnActivate: 1
   m_GroupFramingMode: 2
   m_AdjustmentMode: 2
@@ -8065,15 +8065,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912193496899404}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.18082702, y: -2.9458106, z: 19.296364}
+  m_LocalRotation: {x: 0.055647228, y: 0, z: 0, w: 0.9984505}
+  m_LocalPosition: {x: -0.17745681, y: -3.2214785, z: 11.526204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5167912193019753505}
   m_Father: {fileID: 5167912193220176388}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 6.38, y: 0, z: 0}
 --- !u!114 &5167912193496899406
 MonoBehaviour:
   m_ObjectHideFlags: 0
