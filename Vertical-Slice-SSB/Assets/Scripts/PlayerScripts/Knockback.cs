@@ -10,6 +10,7 @@ public class Knockback : MonoBehaviour
 
     private float xPos;
     private Vector3 lastPos;
+    Transform SmokeParticle;
 
 
 
