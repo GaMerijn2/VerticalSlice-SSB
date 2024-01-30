@@ -24,8 +24,8 @@ public class DoubleJump : MonoBehaviour
 
     [SerializeField] private bool isJumpButtonDown = false;
 
-    private AudioManager audioManager;
-    private AudioSource audioSource;
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private AudioSource audioSource;
 
     AnimatePlayer animatePlayer;
 
@@ -45,8 +45,6 @@ public class DoubleJump : MonoBehaviour
         characterName = GetComponent<ObjectTags>().characterName;
         canJump = true;
         jumpPower = playerMovement.jumpPower;
-        audioManager = GameObject.Find("JumpAudio").GetComponent<AudioManager>();
-        audioSource = GameObject.Find("JumpAudio").GetComponent<AudioSource>();
         animatePlayer = GetComponentInChildren<AnimatePlayer>();
 
 
