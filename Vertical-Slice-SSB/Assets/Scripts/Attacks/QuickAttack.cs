@@ -10,6 +10,8 @@ public class QuickAttack : MonoBehaviour
     public Animator animator;
     private KeyCode QuickAttackKeyCode;
     private Charge charge;
+    [SerializeField] private AudioManager audioManagerVoice;
+    [SerializeField] private AudioManager audioManagerFx;
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
 
@@ -51,6 +53,8 @@ public class QuickAttack : MonoBehaviour
     private void Attack()
     {
         //play animation, gameartist
+        audioManagerVoice.PlayRandomAudio();
+        audioManagerFx.PlayRandomAudio();
         animator.Play("LAttack");
         // Debug.Log("ATTACK!");
 

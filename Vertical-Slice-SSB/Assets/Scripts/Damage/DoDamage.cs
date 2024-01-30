@@ -10,6 +10,7 @@ public class DoDamage : MonoBehaviour
     private float direction;
     // private knockback knockback;
     Transform SmokeParticle;
+    [SerializeField] private Transform[] HitEffects;
 
 
     private void Start()
@@ -46,8 +47,14 @@ public class DoDamage : MonoBehaviour
             collision.GetComponent<PlayerMovement>().rb.AddForce(Vector3.up * direction * (1 + (playerHealth.damage / 100 * 7)), ForceMode.VelocityChange);
 
             collision.GetComponent<PlayerMovement>().rb.AddForce(Vector3.right * direction * (7 + (playerHealth.damage * 1.2f)), ForceMode.Impulse);
-
+            int RandomHitSprite = Random.Range(0, HitEffects.Length);
             Debug.Log("PArticle");
+            Vector3 hitEnemyPos = new Vector3(collision.transform.position.x, collision.transform.position.y);
+            var go = Instantiate(HitEffects[RandomHitSprite]);
+            go.transform.position = hitEnemyPos;
+            AnimatePlayer enemyAnimator = collision.GetComponentInChildren<AnimatePlayer>();
+            enemyAnimator.playAnimation("Hit");
+
             // SmokeParticle = collision.transform.Find("SmokeParticle");
             // SmokeParticle.gameObject.SetActive(true);
             // Invoke(nameof(resetParticle), 2f);

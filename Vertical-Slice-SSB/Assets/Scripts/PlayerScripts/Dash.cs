@@ -45,7 +45,7 @@ public class Dash : MonoBehaviour
     {
         canDash = false;
         isDashing = true;
-        //DashSound[0].Play();
+        DashSound[0].Play();
         rb.useGravity = false;
         float originalDrag = rb.drag;
         rb.drag = 0f;

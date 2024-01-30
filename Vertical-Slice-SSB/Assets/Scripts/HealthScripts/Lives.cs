@@ -11,6 +11,7 @@ public class Lives : MonoBehaviour
     public bool isP2;
     public Image[] liveimgs;
     public PlayerHealth HealthReset;
+    [SerializeField] private AudioSource RespawnAudio;
 
     private void Awake()
     {
@@ -26,6 +27,14 @@ public class Lives : MonoBehaviour
         if (currentLives >= 0 && currentLives < liveimgs.Length)
         {
             liveimgs[currentLives].gameObject.SetActive(false);
+        }
+        if (isP1)
+        {
+            RespawnAudio.Play();
+        }
+        if (isP2)
+        {
+            RespawnAudio.Play();
         }
 
         if (currentLives <= 0)

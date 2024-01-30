@@ -10,6 +10,7 @@ public class HeavyAttack : MonoBehaviour
     public Animator animator;
     private KeyCode HeavyAttackKeyCode;
     private Charge charge;
+    [SerializeField] private AudioManager audioManager;
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
 
@@ -42,7 +43,7 @@ public class HeavyAttack : MonoBehaviour
     }
     public void DoAttack()
     {
-        if ((Player == 1 || Player == 2 /* && Input.GetKeyDown(HeavyAttackKeyCode)*/))
+        if ((Player == 1 || Player == 2 && Input.GetKeyDown(HeavyAttackKeyCode)))
         {
             StartCoroutine(ActivateCollider());
             Attack();
@@ -55,6 +56,7 @@ public class HeavyAttack : MonoBehaviour
     {
         //play animation, gameartist
         animator.Play("HAttack");
+        audioManager.PlayRandomAudio();
         // Debug.Log("HEAVY_ATTACK!");
     }
 
