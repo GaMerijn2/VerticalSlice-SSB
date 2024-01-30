@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class QuickAttack : MonoBehaviour
+public class UpAttack : MonoBehaviour
 {
     [SerializeField] private int Player;
     [SerializeField] private DoDamage doDamage;
@@ -10,7 +10,6 @@ public class QuickAttack : MonoBehaviour
     public Animator animator;
     private KeyCode QuickAttackKeyCode;
     private KeyCode Upcode;
-    private KeyCode Downcode;
     private Charge charge;
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
@@ -27,12 +26,12 @@ public class QuickAttack : MonoBehaviour
 
         if (Player == 1)
         {
-            QuickAttackKeyCode = KeyCode.C; Upcode = KeyCode.W; Downcode = KeyCode.S;
+            QuickAttackKeyCode = KeyCode.C; Upcode = KeyCode.W;
 
         }
         if (Player == 2)
         {
-            QuickAttackKeyCode = KeyCode.O; Upcode = KeyCode.UpArrow; Downcode = KeyCode.DownArrow;
+            QuickAttackKeyCode = KeyCode.O; Upcode = KeyCode.UpArrow;
         }
         animator = GetComponentInChildren<Animator>();
         charge = GetComponent<Charge>();
@@ -44,8 +43,9 @@ public class QuickAttack : MonoBehaviour
     }
     public void DoAttack()
     {
-        if ((Player == 1 || Player == 2) && Input.GetKeyDown(QuickAttackKeyCode) && !Input.GetKeyDown(Upcode) && !Input.GetKeyDown(Downcode))
+        if ((Player == 1 || Player == 2) && Input.GetKey(QuickAttackKeyCode) && Input.GetKeyDown(Upcode))
         {
+            Debug.Log("upattack");
             StartCoroutine(ActivateCollider());
             Attack();
             doDamage.IsAttacking(multiplier);
@@ -54,7 +54,7 @@ public class QuickAttack : MonoBehaviour
     private void Attack()
     {
         //play animation, gameartist
-        animator.Play("LAttack");
+        animator.Play("Upattack");
         // Debug.Log("ATTACK!");
 
     }

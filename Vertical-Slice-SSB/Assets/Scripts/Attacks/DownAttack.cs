@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class QuickAttack : MonoBehaviour
+public class DownAttack : MonoBehaviour
 {
     [SerializeField] private int Player;
     [SerializeField] private DoDamage doDamage;
@@ -44,7 +44,7 @@ public class QuickAttack : MonoBehaviour
     }
     public void DoAttack()
     {
-        if ((Player == 1 || Player == 2) && Input.GetKeyDown(QuickAttackKeyCode) && !Input.GetKeyDown(Upcode) && !Input.GetKeyDown(Downcode))
+        if ((Player == 1 || Player == 2) && Input.GetKeyDown(QuickAttackKeyCode) && Input.GetKeyDown(Downcode))
         {
             StartCoroutine(ActivateCollider());
             Attack();
@@ -54,7 +54,7 @@ public class QuickAttack : MonoBehaviour
     private void Attack()
     {
         //play animation, gameartist
-        animator.Play("LAttack");
+        animator.Play("Downattack");
         // Debug.Log("ATTACK!");
 
     }
