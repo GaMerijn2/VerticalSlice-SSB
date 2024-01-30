@@ -48,3 +48,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: AttackParticles
+    uniqueID: 2585532231
+    locked: 0
