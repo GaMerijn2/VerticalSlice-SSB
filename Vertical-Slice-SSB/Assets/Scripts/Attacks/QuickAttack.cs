@@ -60,7 +60,7 @@ public class QuickAttack : MonoBehaviour
     IEnumerator ActivateCollider()
     {
         attackColliderGO.SetActive(true);
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
         attackColliderGO.SetActive(false);
     }
 }

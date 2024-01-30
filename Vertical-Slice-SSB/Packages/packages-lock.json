@@ -1,5 +1,6 @@
 {
   "dependencies": {
+
     "com.unity.2d.animation": {
       "version": "7.0.10",
       "depth": 1,

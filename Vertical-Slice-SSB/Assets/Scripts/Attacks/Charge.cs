@@ -76,7 +76,7 @@ public class Charge : MonoBehaviour
     IEnumerator ActivateCollider()
     {
         attackColliderGO.SetActive(true);
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.15f);
         attackColliderGO.SetActive(false);
     }
     void ResetAnimatorBool()
