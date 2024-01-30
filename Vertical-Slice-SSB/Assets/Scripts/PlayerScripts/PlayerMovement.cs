@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         if (xPos == lastPos.x)
         {
             animatePlayer.setAnimation("IsWalking", false);
-            animatePlayer.animator.speed = 2f;
+            animatePlayer.animator.speed = 1f; // was eerst 2f  
         }
         else
         {
