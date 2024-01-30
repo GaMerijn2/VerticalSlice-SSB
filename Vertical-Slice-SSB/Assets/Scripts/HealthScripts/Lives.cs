@@ -32,6 +32,10 @@ public class Lives : MonoBehaviour
         {
             RespawnAudio.Play();
         }
+        if (isP2)
+        {
+            RespawnAudio.Play();
+        }
 
         if (currentLives <= 0)
         {
