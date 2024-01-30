@@ -12,7 +12,6 @@ public class QuickAttack : MonoBehaviour
     private Charge charge;
     [SerializeField] private AudioManager audioManagerVoice;
     [SerializeField] private AudioManager audioManagerFx;
-    [SerializeField] private AudioSource audioSource;
 
     //player 1 controlls: "C" for quick attack and "V" for heavy attack
 
