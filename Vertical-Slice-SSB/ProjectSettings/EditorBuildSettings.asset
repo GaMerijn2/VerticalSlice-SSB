@@ -5,15 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/MainScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/DelTestScene890.unity
-    guid: d186faf2814209a4e93a40dfb11c57ee
   - enabled: 1
-    path: Assets/Scenes/Nica.unity
-    guid: 52cbafdac02a9ad4fb2f6616d292bb49
+    path: Assets/Scenes/MainMenu.unity
+    guid: 43022b4c455ee724a8e7f62a0d67d9d2
+  - enabled: 1
+    path: Assets/Scenes/Merijn Scene 1.unity
+    guid: 8ef02c6eb2f76fc4d809908e16fcd0f7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 68190de53eea29543b24523a6cd22497,
       type: 2}
