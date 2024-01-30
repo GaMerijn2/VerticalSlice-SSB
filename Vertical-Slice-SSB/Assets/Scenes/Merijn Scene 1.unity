@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 9664350}
   - component: {fileID: 9664349}
   m_Layer: 0
-  m_Name: JumpAudio
+  m_Name: JumpAudio_K
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2703,8 +2703,9 @@ GameObject:
   - component: {fileID: 1709825843}
   - component: {fileID: 1709825841}
   - component: {fileID: 1709825842}
+  - component: {fileID: 1709825844}
   m_Layer: 0
-  m_Name: JumpAudio
+  m_Name: JumpAudio_J
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2836,6 +2837,19 @@ Transform:
   m_Father: {fileID: 2793155839933848696}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1709825844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709825840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55aca1a4a55491644a131c8bdc8567d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomAudioClip: {fileID: 1709825841}
 --- !u!224 &1717626211 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6492016054000500546, guid: aef5420e18c9fac4abd6d804950aad13,
@@ -5402,6 +5416,8 @@ MonoBehaviour:
   CanJumpMore: 0
   characterName: 
   isJumpButtonDown: 0
+  audioManager: {fileID: 1709825844}
+  audioSource: {fileID: 1709825842}
 --- !u!114 &2793155839933849480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7449,9 +7465,9 @@ MonoBehaviour:
   moveSpeed: 7
   jumpPower: 5.6
   horizontalInputAxis: P1Horizontal
-  dash: {fileID: 0}
-  animatePlayer: {fileID: 0}
-  jumpClips: {fileID: 0}
+  dash: {fileID: 5035254571026621271}
+  animatePlayer: {fileID: 166517450}
+  jumpClips: {fileID: 9664351}
   audioSource: {fileID: 0}
 --- !u!114 &5035254571026621249
 MonoBehaviour:
@@ -7481,6 +7497,8 @@ MonoBehaviour:
   CanJumpMore: 0
   characterName: 
   isJumpButtonDown: 0
+  audioManager: {fileID: 9664349}
+  audioSource: {fileID: 9664350}
 --- !u!114 &5035254571026621251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8027,7 +8045,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 59.999996
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -8053,7 +8071,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912192045060159}
   m_LocalRotation: {x: 0.05564723, y: -0, z: -0, w: 0.9984506}
-  m_LocalPosition: {x: -0.17745616, y: -3.2214785, z: 11.526204}
+  m_LocalPosition: {x: -0.17745396, y: -3.2214775, z: 11.526199}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8348,7 +8366,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5167912193496899404}
   m_LocalRotation: {x: 0.055647228, y: 0, z: 0, w: 0.9984505}
-  m_LocalPosition: {x: -0.17745616, y: -3.2214785, z: 11.526204}
+  m_LocalPosition: {x: -0.17745396, y: -3.2214775, z: 11.526199}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
