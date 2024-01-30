@@ -1,16 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
-    [SerializeField] private GameObject button;
-    void Start()
+    public void StartGame()
     {
-
-    }
-
-    void Update()
-    {
-
+        SceneManager.LoadScene(1);
     }
 }
