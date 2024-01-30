@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = transform.GetComponent<Rigidbody>();
         audioSource = gameObject.GetComponent<AudioSource>();
-        animatePlayer = GameObject.Find("kirby blender animatie lopen met riig fbx").GetComponent<AnimatePlayer>();
 
     }
     private void Awake()
