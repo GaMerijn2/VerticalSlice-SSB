@@ -15,6 +15,7 @@ public class Charge : MonoBehaviour
     [SerializeField] private GameObject attackColliderGO;
     private AnimatePlayer animatePlayer;
     public bool canAttack = true;
+    [SerializeField] private GameObject FatalBlow;
 
     QuickAttack quickAttack;
 
@@ -54,6 +55,9 @@ public class Charge : MonoBehaviour
     {
         StartCoroutine(ActivateCollider());
         doDamage.IsAttacking(currentChargeTime);
+
+        GameObject FatalBlowObj = Instantiate(FatalBlow, transform);
+        //OnAnimationEnd.OnAniEnd += ;
         animatePlayer.animator.SetBool("ResumeChargeAttack", true);
         ResetAttackVariables();
         StartCoroutine(TransitionToNextAnimation());
