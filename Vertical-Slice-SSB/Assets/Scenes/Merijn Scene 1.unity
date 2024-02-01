@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.69
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 2fff490b0e3b0d945a6fc0d916b57f69, type: 2}
@@ -97,8 +97,10 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 2d708b3e268fe69419815a6bc42d22a8,
+    type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: f1c54e71c360fcf4fb7b3fa6ad15371f,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7993,6 +7995,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle System
       objectReference: {fileID: 0}
+    - target: {fileID: 8394281007364722116, guid: 72b17bafae235a1408b97eb1790af66f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8394281007364722119, guid: 72b17bafae235a1408b97eb1790af66f,
         type: 3}
       propertyPath: m_RootOrder
@@ -14451,7 +14458,7 @@ MonoBehaviour:
   Player: 1
   doDamage: {fileID: 5035254571026621264}
   multiplier: 1.5
-  attackColliderGO: {fileID: 1455954044}
+  attackColliderGO: {fileID: 65842210}
   animator: {fileID: 166517449}
   audioManagerVoice: {fileID: 1352674976}
   audioManagerFx: {fileID: 1487047424}
@@ -14666,7 +14673,7 @@ MonoBehaviour:
   chargeSpeed: 2
   maxChargeTime: 3
   chargeTimeThreshold: 1
-  doDamage: {fileID: 0}
+  doDamage: {fileID: 5035254571026621264}
   multiplier: 2.2
   attackColliderGO: {fileID: 1455954044}
   canAttack: 0
